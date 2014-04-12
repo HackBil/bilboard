@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title><?=$this->controller['titre']?> - Résidéclic</title>
+
+	<meta name="description" content="overview &amp; stats" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!--basic styles-->
+
+	<link href="/css/bootstrap.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="/css/font-awesome.min.css" />
+
+	<!--[if IE 7]>
+	  <link rel="stylesheet" href="/css/font-awesome-ie7.min.css" />
+	  <![endif]-->
+
+	  <!--page specific plugin styles-->
+	<?=$this->headLink()->toString()?>
+	<link rel="stylesheet" href="/css/chosen.css" />
+	<link rel="stylesheet" href="/css/jquery.gritter.css" />
+
+	  <!--fonts-->
+
+	  <link rel="stylesheet" href="/css/ace-fonts.css" />
+
+	  <!--ace styles-->
+
+	  <link rel="stylesheet" href="/css/ace.min.css" />
+	  <link rel="stylesheet" href="/css/ace-rtl.min.css" />
+	  <link rel="stylesheet" href="/css/ace-skins.min.css" />
+	
+	  <link rel="stylesheet" href="/css/surcouche.css" />
+
+	<!--[if lte IE 8]>
+	  <link rel="stylesheet" href="/css/ace-ie.min.css" />
+	<![endif]-->
+
+	<!-- inline styles related to this page -->
+
+	<!-- ace settings handler -->
+
+	<script src="/js/ace-extra.min.js"></script>
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+	<!--[if lt IE 9]>
+	<script src="/js/html5shiv.js"></script>
+	<script src="/js/respond.min.js"></script>
+	<![endif]-->
+
+	 <!-- Favicon -->
+	<link rel="icon" type="image/png" href="/src/favicon.png">
+	<link rel="shortcut icon" type="image/x-icon" href="/src/favicon.ico">
+</head>
+
+<body>
+	<div class="center" id="loading" style="left:50%;z-index:10000;position:fixed;top:-1px;display:none;">
+		<span class="label label-large label-important arrowed-in-right arrowed-in" style="margin-left:-100%;">
+			<i class="icon-spinner icon-spin"></i>
+			Chargement...
+		</span>
+	</div>
+	<div class="navbar navbar-default" id="navbar">
+		<script type="text/javascript">
+			try{ace.settings.check('navbar' , 'fixed')}catch(e){}
+		</script>
+		<div class="navbar-container" id="navbar-container">
+			<div class="navbar-header pull-left">
+				<a href="/home" class="navbar-brand lighter">
+					<small>
+						<i class='icon-bullhorn'></i> Résidéclic
+					</small>
+				</a><!--/.brand-->
+			</div><!-- /.navbar-header -->
+			<div class="navbar-header pull-right" role="navigation">
+				<ul class="nav ace-nav">
+				<? if(count($this->session->client['copros'])>1): ?>
+					<li class="grey">
+						<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+							<i class="icon-home"></i>
+							<span class="badge badge-grey"><?=count($this->session->client['copros'])?></span>
+						</a>
+
+						<ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
+							<li class="dropdown-header">
+								<i class="icon-list-ul"></i>
+								Choisissez votre copropriété
+							</li>
+							<? foreach($this->session->client['copros'] as $copro): 
+								if($copro['activ']):
+							 ?>
+							<li>
+								<a href="/home/coproprietes?id=<?=$copro['idCopro']?>">
+									<div class="clearfix">
+										<span class="pull-left">
+											<i class="btn btn-xs no-hover btn-success icon-home"></i>
+											<?=$copro['nom']?>
+										</span>
+									</div>
+								</a>
+							</li>
+							<? else : ?>
+							<li>
+								<a href="#" onclick="return false;">
+									<div class="clearfix">
+										<span class="pull-left">
+											<i class="btn btn-xs no-hover btn-grey icon-lock"></i>
+											<?=$copro['nom']?>
+										</span>
+									</div>
+								</a>
+							</li>
+							<? endif;?>
+							<? endforeach; ?>
+						</ul>
+					</li>
+				<? endif; ?>
+					<li class="purple">
+						<a data-toggle="dropdown" class="dropdown-toggle" href="#" onclick="return nbnotifications();">
+							<i class="icon-bell-alt icon-animated-bell"></i>
+							<span class="badge badge-important"><?=$this->session->nbNotifications?></span>
+						</a>
+						<ul class="pull-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
+							<li class="dropdown-header">
+								<i class="icon-icon-bell-alt"></i>
+								<?=$this->session->nbNotifications?> Notification<?if($this->session->nbNotifications>1):?>s<?endif;?>
+							</li>
+							<? foreach($this->session->notifications as $notification):?>
+							<li onclick="<?=$notification['url']?>_voir(<?=$notification['idElement']?>)">
+								<a href="#">
+									<img class="nav-user-photo pull-left" src="/file/client/<?=Lib_Pic::profil($notification['picAuteur'],$notification['civAuteur'])?>" alt="<?=$notification['pAuteur'].' '.$notification['nAuteur']?>" />
+									<?=$notification['pAuteur'].' '.$notification['nAuteur'].' '.$notification['action']?> 
+									<br/><strong><i class="icon-<?=$notification['icon']?>"></i> <?=$notification['titre']?></strong>
+								</a>
+							</li>
+							<? endforeach;?>
+							<li>
+							</li>
+						</ul>
+					</li>
+
+					<li class="green">
+						<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+							<i class="icon-envelope icon-animated-vertical"></i>
+							<span class="badge badge-success"><?=count($this->messagesNonLus)?></span>
+						</a>
+
+						<ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
+							<li class="dropdown-header">
+								<i class="icon-envelope"></i>
+								<? if(count($this->messagesNonLus) == 0) : ?>
+								Pas de nouveau message
+							<? elseif(count($this->messagesNonLus) == 1) : ?>
+								1 message non-lu
+							<? else : ?>
+								<?=count($this->messagesNonLus)?> messages non-lus
+							<? endif; ?>
+							</li>
+							<?
+							$i=0; 
+							foreach ($this->messagesNonLus as $nonlu) 
+							{ 
+								$i++;?>
+							<li>
+								<a href="/messagerie">
+									<img src="/file/client/<?=Lib_Pic::profil($nonlu['picAuteur'],$nonlu['civAuteur'])?>" class="msg-photo" alt="<?=$nonlu['pAuteur']." ".$nonlu['nAuteur']?>" />
+									<span class="msg-body">
+										<span class="msg-title">
+											<span class="blue"><?=$nonlu['pAuteur']?></span>
+											<?=$nonlu['titre']?>
+										</span>
+
+										<span class="msg-time">
+											<i class="icon-time"></i>
+											<span><?=Lib_Date::duduDate($nonlu['date'])?></span>
+										</span>
+									</span>
+								</a>
+							</li>
+								<?
+								if ($i>2) break; 
+							} ?>
+							<li>
+								<a href="/messagerie">
+									Voir tous les messages
+									<i class="icon-arrow-right"></i>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="light-blue">
+						<a data-toggle="dropdown" href="#" class="dropdown-toggle">
+							<img class="nav-user-photo" src="/file/client/<?=Lib_Pic::profil($this->session->client['pic'],$this->session->client['civ'])?>" alt="<?=$this->session->client['prenom'].' '.$this->session->client['nom']?>" />
+							<span class="user-info">
+								<small>Bienvenue,</small>
+								<?=$this->session->client['prenom']?>
+							</span>
+
+							<i class="icon-caret-down"></i>
+						</a>
+
+						<ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+							<li>
+								<a href="/parametres/">
+									<i class="icon-user"></i>
+									Profil
+								</a>
+							</li>
+
+							<li class="divider"></li>
+
+							<li>
+								<a href="/connexion/index/deconnexion">
+									<i class="icon-off"></i>
+									&Agrave; bientôt !
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul><!--/.ace-nav -->
+			</div><!--/.navbar-header -->
+		</div><!--/.container -->
+	</div>
+
+	<div class="main-container" id="main-container">
+		<script type="text/javascript">
+			try{ace.settings.check('main-container', 'fixed')}catch(e){}
+		</script>
+		<div class="main-container-inner">
+			<a class="menu-toggler" id="menu-toggler" href="#">
+				<span class="menu-text"></span>
+			</a>
+
+			<div class="sidebar" id="sidebar">
+				<script type="text/javascript">
+					try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+				</script>
+				
+				<div class="sidebar-shortcuts" id="sidebar-shortcuts">
+					<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+						<button class="btn btn-sm btn-success tooltip-success" data-rel="tooltip" data-placement="bottom" data-original-title="Ajouter un post" onclick="return forum_ajouter(0);">
+							<i class="icon-comments"></i>
+						</button>
+
+						<button class="btn btn-sm btn-danger tooltip-error" data-rel="tooltip" data-placement="bottom" data-original-title="Signaler un incident" onclick="return incidents_ajouter(0);">
+							<i class="icon-exclamation-sign"></i>
+						</button>
+
+						<button class="btn btn-sm btn-warning tooltip-warning" data-rel="tooltip" data-placement="bottom" data-original-title="Planifier une intervention" onclick="return interventions_ajouter(0);">
+							<i class="icon-warning-sign"></i>
+						</button>
+						
+						<button class="btn btn-sm btn-info tooltip-info" data-rel="tooltip" data-placement="bottom" data-original-title="Charger un document" onclick="return documents_ajouter(0);">
+							<i class="icon-folder-open"></i>
+						</button>
+					</div>
+
+					<div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+						<span class="btn btn-success"></span>
+
+						<span class="btn btn-info"></span>
+
+						<span class="btn btn-warning"></span>
+
+						<span class="btn btn-danger"></span>
+					</div>
+				</div><!--#sidebar-shortcuts-->
+				
+				<!-- Menu -->
+				<?=$this->menu?>
+
+				<div class="sidebar-collapse" id="sidebar-collapse">
+					<i class="icon-double-angle-left"></i>
+				</div>
+				<script type="text/javascript">
+					try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+				</script>
+			</div>
+			<div class="main-content">
+				<div class="breadcrumbs" id="breadcrumbs">
+					<script type="text/javascript">
+						try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+					</script>
+					<?=$this->breadcrumb?>
+					<div class="pull-right grey hidden-xs">
+						<?=Lib_Abonnement::deadline($this->session->client['copros'][0])?>
+					</div>
+				</div>
+				<div class="page-content">
+					<div class="page-header">
+						<h1>
+							<i class="icon-<?=$this->controller['icon']?>"></i> <?=$this->controller['titre']?>
+						</h1>
+					</div><!-- /.page-header -->
+
+					<div id="flash">
+					</div>
+
+					<div class="row">
+						<div class="col-xs-12">
+							<?=$this->layout()->content;?>
+						</div>
+						<!--PAGE CONTENT ENDS HERE -->
+					</div><!--/row -->
+				</div><!--/#page-content -->
+			</div><!-- /#main-content -->
+		</div><!-- /.fluid-container#main-container -->
+		<!--basic scripts-->
+		<!--[if !IE]>-->
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
+		</script>
+		<!--<![endif]-->
+		<!--[if IE]>
+		<script type="text/javascript">
+		 window.jQuery || document.write("<script src='/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+		</script>
+		<![endif]-->
+		<script type="text/javascript">
+			if("ontouchend" in document) document.write("<script src='/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>	
+
+
+		<script src="/js/bootstrap.min.js"></script>
+
+		<script src="/js/jquery-ui-1.10.3.custom.min.js"></script>
+		<script src="/js/jquery.ui.touch-punch.min.js"></script>
+
+		<script src="/js/jquery.dataTables.min.js"></script>
+		<script src="/js/jquery.dataTables.bootstrap.js"></script>
+		<script src="/js/espclient/datatables.js"></script>
+
+		<!-- Custom library -->
+		<script src="/js/infinitescroll.js"></script>
+		
+
+		<!-- Ace Library -->
+		<script src="/js/typeahead-bs2.min.js"></script>
+		<script src="/js/spin.min.js"></script>
+		<script src="/js/select2.min.js"></script>
+		<script src="/js/prettify.js"></script>
+		<script src="/js/jquery.validate.min.js"></script>
+		<script src="/js/jquery.sparkline.min.js"></script>
+		<script src="/js/jquery.slimscroll.min.js"></script>
+		<script src="/js/jquery.mobile.custom.min.js"></script>
+		<script src="/js/jquery.maskedinput.min.js"></script>
+		<script src="/js/jquery.knob.min.js"></script>
+		<script src="/js/jquery.inputlimiter.1.3.1.min.js"></script>
+		<script src="/js/jquery.hotkeys.min.js"></script>
+		<script src="/js/jquery.gritter.min.js"></script>
+		<script src="/js/jquery.easy-pie-chart.min.js"></script>
+		<script src="/js/jquery.colorbox-min.js"></script>
+		<script src="/js/jquery.autosize-min.js"></script>
+		<script src="/js/fullcalendar.min.js"></script>
+		<script src="/js/excanvas.min.js"></script>
+		<script src="/js/chosen.jquery.min.js"></script>
+		<script src="/js/bootstrap-wysiwyg.min.js"></script>
+		<script src="/js/bootstrap-tag.min.js"></script>
+		<script src="/js/bootstrap-colorpicker.min.js"></script>
+		<script src="/js/bootbox.min.js"></script>
+		<script src="/js/additional-methods.min.js"></script>
+
+		<script src="/js/fuelux/fuelux.spinner.min.js"></script>
+		<script src="/js/fuelux/fuelux.tree.min.js"></script>
+		<script src="/js/fuelux/fuelux.wizard.min.js"></script>
+
+		<script src="/js/flot/jquery.flot.min.js"></script>
+		<script src="/js/flot/jquery.flot.pie.min.js"></script>
+		<script src="/js/flot/jquery.flot.resize.min.js"></script>
+
+		<script src="/js/date-time/bootstrap-datepicker.min.js"></script>
+		<script src="/js/date-time/bootstrap-timepicker.min.js"></script>
+		<script src="/js/date-time/daterangepicker.min.js"></script>
+		<script src="/js/date-time/moment.min.js"></script>
+
+		<script src="/js/espclient/supprimer.js"></script>
+		<script src="/js/espclient/modifier.js"></script>
+		<script src="/js/espclient/ajouter.js"></script>
+		<script src="/js/espclient/voir.js"></script>
+		<script src="/js/espclient/surcouche.js"></script>
+		<script src="/js/espclient/upload.js"></script>
+		<script src="/js/espclient/commentaires.js"></script>
+
+		<script src="/js/ace-elements.min.js"></script>
+		<script src="/js/ace.min.js"></script>
+		
+
+		<!-- JS Spécific de la page -->
+		<?
+		echo $this->headScript()->toString()
+		?>	
+		<script src="/js/espclient/layout.js"></script>
+		
+		<? if('production' == APPLICATION_ENV): ?>
+		<script type="text/javascript">
+		// Google Analytics
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-20746587-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+		// Uservoice
+		// Include the UserVoice JavaScript SDK (only needed once on a page)
+		UserVoice=window.UserVoice||[];(function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='//widget.uservoice.com/NBZFuAHI1w9wJeIvt3H4aA.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})();
+
+		//
+		// UserVoice Javascript SDK developer documentation:
+		// https://www.uservoice.com/o/javascript-sdk
+		//
+
+		// Set colors
+		UserVoice.push(['set', {
+		  accent_color: '#448dd6',
+		  trigger_color: 'white',
+		  trigger_background_color: '#448dd6'
+		}]);
+
+		// Identify the user and pass traits
+		// To enable, replace sample data with actual user traits and uncomment the line
+		UserVoice.push(['identify', {
+		  //email:      'john.doe@example.com', // User’s email address
+		  //name:       'John Doe', // User’s real name
+		  //created_at: 1364406966, // Unix timestamp for the date the user signed up
+		  //id:         123, // Optional: Unique id of the user (if set, this should not change)
+		  //type:       'Owner', // Optional: segment your users by type
+		  //account: {
+		  //  id:           123, // Optional: associate multiple users with a single account
+		  //  name:         'Acme, Co.', // Account name
+		  //  created_at:   1364406966, // Unix timestamp for the date the account was created
+		  //  monthly_rate: 9.99, // Decimal; monthly rate of the account
+		  //  ltv:          1495.00, // Decimal; lifetime value of the account
+		  //  plan:         'Enhanced' // Plan name for the account
+		  //}
+		}]);
+
+		// Add default trigger to the bottom-right corner of the window:
+		UserVoice.push(['addTrigger', { mode: 'smartvote', trigger_position: 'bottom-right' }]);
+
+		// Or, use your own custom trigger:
+		//UserVoice.push(['addTrigger', '#id', { mode: 'smartvote' }]);
+
+		// Autoprompt for Satisfaction and SmartVote (only displayed under certain conditions)
+		UserVoice.push(['autoprompt', {}]);
+		</script>
+		<? endif; ?>
+</body>
+</html>

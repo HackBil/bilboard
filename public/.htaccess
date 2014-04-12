@@ -1,0 +1,11 @@
+AddDefaultCharset UTF-8
+
+Options +FollowSymlinks
+
+RewriteEngine on
+
+RewriteBase /
+
+RewriteRule !\.(js|ico|gif|pdf|doc|docx|xls|xlsx|ppt|pptx|jpg|jpeg|png|css|php|xml|swf|rar|txt|zip|JS|ICO|GIF|PDF|DOC|DOCX|XLS|XLSX|PPT|PPTX|JPG|PNG|CSS|PHP|XML|SWF|RAR|TXT|ZIP|eot|ttf|woff|svg|otf|htm)$ index.php
+
+SetEnv PHP_VER 5

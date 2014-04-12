@@ -1,0 +1,481 @@
+########################################
+#layout_espace_client
+######################################## 
+#Titre
+layout/title_suiteTitre;Résidéclic, le réseau des résidants
+
+#Menu
+layout/applications;Applications
+layout/boutique;Boutique
+layout/visiteGuidee;Visite Guidée
+layout/modifProfil;Modifier mon profil
+layout/deconnecter;Se déconnecter
+layout/aide;Aide
+
+#Notification
+layout/img_btn_fermer;J\'ai lu !
+layout/a_jailu;J\'ai lu !
+
+#Panier
+layout/votrePanier;Votre panier
+layout/panierQuantite;Quantité
+layout/panierUnite;unité
+layout/gererPanier;Gérer le panier
+
+#Messagerie
+layout/messagerie;Qui est en ligne ?
+
+#Activation nouveau membre
+layout/a_voirsonprofil;Voir son profil
+layout/a_activer;activer
+layout/a_refuser;refuser
+layout/div_nouveaucompte;Nouveau compte
+layout/div_nouveauxcomptes;Nouveaux comptes
+
+#Footer
+layout/span_bottom;Résidéclic est une marque déposée d'Habitat, Innovation & Technologie. Tous droits réservés.
+
+########################################
+#Formulaire
+######################################## 
+form/titre;Titre
+form/description;Description
+form/diffusion;Diffusion
+form/publier;Publier
+form/modifier;Modifier
+form/valider;Valider
+form/adresseElectronique;Adresse électronique
+form/email;Email
+form/telFixe;Téléphone Fixe
+form/telPortable;Téléphone Portable
+form/statut;Statut
+form/civilite;Civilité
+form/madame;Madame
+form/monsieur;Monsieur
+form/nom;Nom
+form/prenom;Prénom
+form/*;*
+
+########################################
+#Standard
+######################################## 
+standard/retour;Retour
+standard/voir;Voir
+standard/ajouter;Ajouter
+standard/modifier;Modifier
+standard/supprimer;Supprimer
+standard/filtrer;Filtrer
+standard/filtreDescription;Sélectionnez une étiquette puis cliquez sur le bouton "Filtrer" pour valider votre recherche.
+standard/lectures;Lectures
+standard/nonAutorise;Vous n'êtes pas autorisé à voir cette page !
+standard/labelTous;Tous
+standard/moderateur;Modérateur
+standard/oui;Oui
+standard/non;Non
+
+########################################
+#Frontend (tempo)
+######################################## 
+espclient/home;Accueil
+espclient/copropriete;Ma Copropriété
+espclient/profil;Mon Profil
+espclient/blog;Blog
+espclient/incident;Incidents
+espclient/intervention;Interventions
+espclient/document;Documents
+espclient/documentheque;Documents types
+espclient/pratique;Infos Pratiques
+espclient/annuaire;Annuaire
+espclient/annonces;Annonces
+espclient/evenement;Evènements
+espclient/sondage;Sondages
+espclient/message;Message
+espclient/calendrier;Calendrier
+espclient/boxnew;BoxNew
+espclient/decouvrir;Faire découvrir
+espclient/album;Albums photos
+espclient/doodle;Choix d'une date
+espclient/kesacopro;Késacopro
+espclient/gazette;Gazette
+espclient/numerisation;Numérisation
+espclient/espacepublic;Espace public
+espclient/sauvegarde;Sauvegarder
+espclient/souscrire;Souscrire
+espclient/statistiques;Statistiques
+espclient/chat;Chat
+espclient/index;index
+espclient/modifier;Modification
+espclient/ajouter;Ajout
+espclient/supprimer;Suppression
+espclient/date;Date
+espclient/voir;Voir
+espclient/details;Détails
+espclient/labels;Gestion des étiquettes
+espclient/a_espclient;Espace Client
+espclient/title_suiteTitre;Résidéclic, le réseau des résidants
+espclient/img_btn_fermer;J'ai lu !
+espclient/a_profil;Aller à mon profil
+espclient/a_copro;Aller à ma copropriété
+espclient/a_accueil;Accueil
+espclient/a_macopro;Ma Copropriété
+espclient/a_monprofil;Mon Profil
+espclient/a_aide;Aide
+espclient/a_sedeco;Se déconnecter
+espclient/a_jailu;J'ai lu !
+espclient/span_bienvenue;Bienvenue
+espclient/span_residence;Résidence
+espclient/p_espacedestockage;Espace de stockage
+espclient/div_menu;Menu
+espclient/div_sinformer;S'informer
+espclient/infobulle_annuaire;\'Mes voisins\' vous renseigne sur les coordonnées <br/>des membres de votre copropriété.
+espclient/div_annuaire;Annuaire
+espclient/infobulle_blog;Découvrez et réagissez aux dernières nouvelles <br/> que le Conseil Syndical a publiées
+espclient/div_blog;Blog
+espclient/infobulle_pratique;Retrouvez toutes les informations <br/> pratiques de votre copropriété
+espclient/div_pratique;Infos Pratiques
+espclient/infobulle_gazette;La Gazette, un concentré d\'informations <br/> de votre copropriété en deux pages
+espclient/div_gazette;Gazette
+espclient/div_organiser;Organiser
+espclient/infobulle_evenement;Participez, créez, ou organisez le prochain <br/> évènement dans votre copropriété !
+espclient/div_evenements;Evènements
+espclient/infobulle_doodle;Vous souhaitez créer un évènement mais <br/>vous n\'avez pas de dates précises ? <br/> Créez un sondage pour connaitre les<br/> disponibilités de chacun
+espclient/div_choixdate;Choix d'une date
+espclient/div_echanger;Echanger
+espclient/infobulle_annonces;L\'annuaire vous renseigne sur les coordonnées <br/>des membres de votre copropriété
+espclient/div_petitesannonces;Petites annonces
+espclient/infobulle_sondage;Postez ici toutes vos bonnes idées, et contribuez <br/> à l\'amélioration de votre copropriété
+espclient/div_sondage;Sondage
+espclient/infobulle_album;Créez un album, et partagez les photos de la fte<br/> des voisins, de votre immeuble, ou de n\'importe <br/> quel évènement de votre copropriété !
+espclient/div_albumphotos;Album Photos
+espclient/infobulle_macorpo;Voir et modifier les informations de votre copropriété.
+espclient/infobulle_monquartier;Vous révez de redécouvrir votre quartier ? Cette rubrique contient de nombreuses informations sur les services à proximité.
+espclient/infobulle_prestataire;Gérez, notez, échangez avec les sociétés qui interviennent dans votre copropriété. 
+espclient/infobulle_chat;GrÃ¢ce au chat, vous allez pouvoir miauler !
+espclient/div_chat;Chat
+espclient/infobulle_message;GrÃ¢ce à la messagerie, contactez directement les résidants <br/> de votre copropriété en leur envoyant un message !
+espclient/div_messagerie;Messagerie
+espclient/infobulle_incident;En cas d\'incident, (ex: fuite d\'eau) prévenez<br/> immédiatement l\'ensemble de votre copropriété !
+espclient/div_incidents;Incidents
+espclient/infobulle_interventions;Restez au courant des prochaines interventions <br/>de professionels qui auront lieu dans votre <br/>copropriété, et informez en les autres résidants
+espclient/div_interventions;Interventions
+espclient/infobulle_document;Partagez et téléchargez librement les documents <br/>que le Conseil Syndical met à votre disposition
+espclient/div_documents;Documents
+espclient/infobulle_numerisation;Demandez nous de numériser vos documents papier,<br/> et nous les ajouterons directement sur votre espace !
+espclient/div_numerisation;Numérisation
+espclient/infobulle_documentheque;Résidéclic met à votre disposition un ensemble<br/> de documents types pour vous aider à mieux<br/> gérer votre copropriété
+espclient/div_documentheque;Documents types
+espclient/div_parametrer;Paramétrer
+espclient/infobulle_domaine;Obtenez un nom de domaine simple et personnalisé<br/> pour le site de votre copropriété !
+espclient/div_domaine;Nom de domaine
+espclient/infobulle_espacepublic;Personnalisez l\'espace public de votre<br/> résidence en choisissant le contenu<br/> des informations rendues publiques
+espclient/div_espacepublic;Espace public
+espclient/infobulle_sauvegarde;Vous souhaitez préparer au mieux la prochaine assemblée<br/> générale ? Téléchargez une archive contenant<br/> l\'ensemble des contenus de votre copropriété !
+espclient/div_sauvegarde;Sauvegarde
+espclient/infobulle_statistiques;GrÃ¢ce au tableau de bord de Résidéclic vous pouvez <br/>consulter les statistiques de votre espace client,<br/> et celle de l\'espace public de votre copropriété !
+espclient/div_statistiques;Statistiques
+espclient/div_alaune;A la Une !
+espclient/a_modiflaune;Modifier la Une
+espclient/div_alaunebienvenue;Bienvenue !
+espclient/div_alaunedescription;Vous êtes maintenant connecté à un espace dédié à notre résidence. N'hésitez pas à vous informer et à participer à la vie de la copropriété en parcourant les différentes rubriques !
+espclient/a_plusdinfo;Plus d'infos...
+espclient/div_chat;Chat
+espclient/option_dispo;Disponible
+espclient/option_indispo;Indisponible
+
+espclient/a_liensutiles;Liens utiles
+espclient/a_plansite;Plan du site
+espclient/a_sinscrire;S'inscrire à Résidéclic
+espclient/a_associationFB;Association de vos comptes Facebook et Résidéclic
+espclient/a_autorisationFB;Pourquoi synchroniser mon compte Résidéclic avec Facebook
+espclient/a_aide;Aide
+espclient/a_contact;Contact
+espclient/a_contactEquipe;Contacter notre équipe
+espclient/a_contactServiceCom;Contacter notre service commercial
+espclient/a_title_reseau1;Restez informé de l'actualité de Résidéclic et bénéficiez d'offres exceptionnelles ! Devenez Fan !
+espclient/a_title_reseau2;Restez informé de l'actualité de Résidéclic et bénéficiez d'offres exceptionnelles ! Suivez @resideclic !
+espclient/a_title_reseau3;Intégrer toutes les actualités de Résidéclic dans votre flux RSS !
+espclient/a_title_reseau4;Restez informé de l'actualité de Résidéclic et bénéficiez d'offres exceptionnelles ! Rejoignez le cercle de Résidéclic !
+espclient/div_decouvrezaussi;Découvrez aussi:
+espclient/a_title_actublog;L'actualité de la copropriété et de Résidéclic
+espclient/a_leblog;Le Blog de Résidéclic
+
+########################################
+#layout_blog
+######################################## 
+blog/meta_description;Résidéclic est une solution pour faciliter la gestion de votre copropriété. Membres du Conseil Syndical, Copropriétaires, Locataires, participez à la gestion de votre résidence !
+blog/og_site_name;Résidéclic
+blog/og_description;Résidéclic est une solution pour faciliter la gestion de votre copropriété. Membres du Conseil Syndical, Copropriétaires, Locataires, participez à la gestion de votre résidence ! 
+blog/og_title;Résidéclic - Le Réseau des Résidants
+blog/og_type;article
+blog/a_logo_title;Accueil - Bienvenue sur le blog de Résidéclic
+blog/a_menu_accueil;Accueil
+blog/a_menu_decouvrir;Découvrir Résidéclic
+blog/p_pitch;Ce blog est alimenté par l'équipe de Résidéclic. On y retrouve un peu d'immobilier, un peu de startup, un peu de vous et un peu de nous ! Bonne lecture !
+blog/h3_bloc_side;Toutes les catégories
+blog/p_pitch2;Retrouvez dans cette liste l'ensemble des catégories du blog de Résidéclic. Vous ne trouvez pas ce que vous souhaitez, n'hésitez pas à nous le signaler par mail :
+blog/a_envoyezidees;Envoyez nous vos idées !
+blog/a_decouvrir;Découvrir le blog de Résidéclic - toute l'actualité de la copropriété, de la société et de son équipe !
+blog/h3_nuagemotscles;Nuage de mots-clés
+blog/h3_derniersarticles;Les derniers articles
+blog/p_pitch3;Retrouvez les cinq dernières actualités du blog en accès rapide :
+blog/a_title_derniersarts;Accéder aux cinq derniers articles de Résidéclic
+blog/a_derniersarts;Accéder aux cinq derniers articles :
+blog/a_footer_actu;Découvrir le blog de Résidéclic - toute l'actualité de la copropriété, de la société et de son équipe !
+blog/div_legal;Résidéclic est une marque déposée d'Habitat, Innovation & Technologie. Tous droits réservés.
+
+########################################
+#layout_copropriete
+######################################## 
+copropriete/og_site_name;Résidéclic
+copropriete/og_description;Résidéclic est une solution pour faciliter la gestion de votre copropriété. Membres du Conseil Syndical, Copropriétaires, Locataires, participez à la gestion de votre résidence ! 
+copropriete/og_title;Résidéclic - Le Réseau des Résidants
+copropriete/og_type;article
+copropriete/link_title;Résidéclic : le réseau des résidants
+copropriete/img_logo_alt;Logo
+copropriete/span_acces;Accès
+copropriete/span_amonespace;à mon espace
+copropriete/span_connexion;Connexion
+copropriete/span_amacopro;à ma copropriété
+copropriete/span_alademo;à la démo
+copropriete/a_menu_accueil;Accueil
+copropriete/a_menu_aide;Aide
+copropriete/a_title_rejoindrecopro;Rejoindre notre copropriété
+copropriete/a_sinscrire;S'inscrire
+copropriete/a_nouscontacter;Nous contacter
+copropriete/a_title_contacterCS;Contacter notre Conseil Syndical
+copropriete/a_title_retouraccueil;Revenir à la page d'accueil
+copropriete/a_retouraccueil;Retour accueil
+copropriete/h2_France;France
+copropriete/a_title_carteinteractive;Accéder à la carte interactive
+copropriete/a_liensUtiles;Liens utiles
+copropriete/a_sitemap;Plan du site
+copropriete/a_sinscrire;S'inscrire à Résidéclic
+copropriete/a_associationFb;Association de vos comptes Facebook et Résidéclic
+copropriete/a_autorisationFb;Pourquoi synchroniser mon compte Résidéclic avec Facebook
+copropriete/a_aide;Aide
+copropriete/a_contact;Contact
+copropriete/a_contactEquipe;Contacter notre équipe
+copropriete/a_contactServiceCom;Contacter notre service commercial
+copropriete/a_title_reseauFb;Restez informé de l'actualité de Résidéclic et bénéficiez d'offres exceptionnelles ! Devenez Fan !
+copropriete/a_title_reseauTwitter;Restez informé de l'actualité de Résidéclic et bénéficiez d'offres exceptionnelles ! Suivez @resideclic !
+copropriete/a_title_reseauRss;Intégrer toutes les actualités de Résidéclic dans votre flux RSS !
+copropriete/a_title_reseauGPlus;Restez informé de l'actualité de Résidéclic et bénéficiez d'offres exceptionnelles ! Rejoignez le cercle de Résidéclic !
+copropriete/a_alt_reseauFb;Facebook
+copropriete/a_alt_reseauTwitter;Twitter
+copropriete/a_alt_reseauRss;Flux RSS
+copropriete/a_alt_reseauGPlus;google+
+copropriete/div_decouvrezAussi;Découvrez aussi:
+copropriete/a_actuCopro;L'actualité de la copropriété et de Résidéclic
+copropriete/a_blog;Le Blog de Résidéclic
+copropriete/span_bottomResideclic;Résidéclic est une marque déposée d'Habitat, Innovation & Technologie. Tous droits réservés.
+
+########################################
+#layout_frontend
+######################################## 
+frontend/meta_description;Résidéclic est une solution pour faciliter la gestion de votre copropriété. Membres du Conseil Syndical, Copropriétaires, Locataires, participez à la gestion de votre résidence !
+frontend/og_site_name;Résidéclic
+frontend/og_description;Résidéclic est une solution pour faciliter la gestion de votre copropriété. Membres du Conseil Syndical, Copropriétaires, Locataires, participez à la gestion de votre résidence ! 
+frontend/og_title;Résidéclic - Le Réseau des Résidants
+frontend/og_type;article
+frontend/link_title;Résidéclic : le réseau des résidants
+frontend/span_acces;Accès
+frontend/span_amonespace;à mon espace
+frontend/span_connexion;Connexion
+frontend/span_amacopro;à ma copropriété
+frontend/span_alademo;à la démo
+frontend/a_menu_accueil;Accueil
+frontend/a_menu_aide;Aide
+frontend/p_recherche;Entrez l'adresse de votre résidence
+frontend/p_recherche_inscrivezvous;et inscrivez-vous, c'est 
+frontend/p_recherche_gratuit;gratuit
+frontend/input_envoi_submit;S'inscrire
+frontend/a_lireLaSuite;Lire la suite...
+frontend/a_plusDactus;Plus d'actus...
+frontend/a_liensUtiles;Liens utiles
+frontend/a_sitemap;Plan du site
+frontend/a_inscription;S'inscrire à Résidéclic
+frontend/a_associationFb;Association de vos comptes Facebook et Résidéclic
+frontend/a_autorisationFb;Pourquoi synchroniser mon compte Résidéclic avec Facebook
+frontend/a_aide;Aide
+frontend/a_contact;Contact
+frontend/a_contactEquipe;Contacter notre équipe
+frontend/a_contactServiceCom;Contacter notre service commercial
+frontend/a_title_reseauFb;Restez informé de l'actualité de Résidéclic et bénéficiez d'offres exceptionnelles ! Devenez Fan !
+frontend/a_title_reseauTwitter;Restez informé de l'actualité de Résidéclic et bénéficiez d'offres exceptionnelles ! Suivez @resideclic !
+frontend/a_title_reseauRss;Intégrer toutes les actualités de Résidéclic dans votre flux RSS !
+frontend/a_title_reseauGPlus;Restez informé de l'actualité de Résidéclic et bénéficiez d'offres exceptionnelles ! Rejoignez le cercle de Résidéclic !
+frontend/a_alt_reseauFb;Facebook
+frontend/a_alt_reseauTwitter;Twitter
+frontend/a_alt_reseauRss;Flux RSS
+frontend/a_alt_reseauGPlus;google+
+frontend/div_decouvrezAussi;Découvrez aussi:
+frontend/a_actuCopro;L'actualité de la copropriété et de Résidéclic
+frontend/a_blog;Le Blog de Résidéclic
+frontend/span_bottomResideclic;Résidéclic est une marque déposée d'Habitat, Innovation & Technologie. Tous droits réservés.
+
+########################################
+#HomeController
+######################################## 
+espclient/home/dernieresActions_phraseType;Une nouvelle édition de la gazette a été publiée :
+espclient/home/flashMsg_newModif;La boÃ®te à nouvelles a été modifiée
+espclient/home/flashMsg_newCrea;La boÃ®te à nouvelles a été créée
+espclient/home/flashMsg_ErrEnvoi;Erreur lors de l'envoi !
+espclient/home/flashMsg_ActuNoExist;Cette actualité n'existe pas
+espclient/home/flashMsg_ActuSuppr;Actualité supprimée
+espclient/home/flashMsg_NoDroitSuppr;Vous ne disposez pas des droits de suppression.
+
+########################################
+#AlbumController
+######################################## 
+espclient/album/monAlbum;Mon album
+espclient/album/mesPhotos;Mes photos
+espclient/album/uploadPhotos;Charger les photos
+espclient/album/ajouterAlbum;Ajouter un album
+espclient/album/photos;photos
+espclient/album/par;par
+espclient/album/creePar;Créé par
+espclient/album/ajouter;Ajouter
+espclient/album/modifier;Modifier
+espclient/album/supprimer;Supprimer
+espclient/album/confSuppression;Etes-vous sur de vouloir supprimer l\'album \'
+espclient/album/confSuppressionFin;\' ?
+espclient/album/voirPhotosAlbum;Voir les photos de l'album
+espclient/album/visionnerAlbum;Visionner l'album
+espclient/album/aucunAlbum;Aucun album
+espclient/album/retourAlbums;Retour aux albums
+espclient/album/pasDePhoto;Pas de photo ...
+
+
+espclient/album/1erJour;1er jour
+espclient/album/tabPhotoTrombiDesResidants;Trombinoscope des résidants
+espclient/album/tabPhotoIncidents;Incidents
+espclient/album/tabPhotoAnnonces;Annonces
+espclient/album/tabPhotoMaCopro;Ma copropriété
+espclient/album/NomAlbumMaCopro;Ma copropriété
+espclient/album/DescAlbumMaCopro;Les photos de notre copropriété
+espclient/album/NomAlbumTrombi;Trombinoscope
+espclient/album/DescAlbumTrombi;Retrouvez sur le trombinoscope l'ensemble des photos des membres de votre copropriété
+espclient/album/NomAlbumIncidents;Incidents
+espclient/album/DescAlbumIncidents;Retrouvez en images l'ensemble des incidents concernant votre copropriété
+espclient/album/NomAlbumAnnonces;Annonces
+espclient/album/DescAlbumAnnonces;Retrouvez en images l'ensemble des annonces postées par les membres de votre copropriété
+espclient/album/FlashMsgMinUnePhoto;Vous devez ajouter au moins une photo à l'album pour qu'il puisse tre publié
+espclient/album/FlashMsgLimitQuota;Vous avez atteint le quota d'espace disque autorisé ! Vous ne pouvez plus envoyer de fichiers.
+espclient/album/FlashMsgAlbumAjout1;L'album 
+espclient/album/FlashMsgAlbumAjout2; a été publié
+espclient/album/FlashMsgAlbumModif1; a été modifié
+espclient/album/FlashMsgAlbumSuppr1; a été supprimé
+espclient/album/FlashMsgNoDroitModif;Vous ne pouvez pas modifier cet album
+espclient/album/FlashMsgNoDroitSuppr;Vous ne pouvez pas supprimer cet album
+espclient/album/flashMsgAlbumSuppr;Album supprimé
+espclient/album/flashMsgNoDroitSuppr2;Vous ne disposez pas des droits de suppression.
+espclient/album/flashMsgPhotoSuppr;Photo supprimée
+
+########################################
+#AnnoncesController
+######################################## 
+espclient/annonces/flashMsg_AnnonceNoExist;Cette annonce n'existe pas.
+espclient/annonces/FlashMsgLimitQuota;Vous avez atteint le quota d'espace disque autorisé ! Vous ne pouvez plus envoyer de fichiers.
+espclient/annonces/FlashMsgLimitTaille;La taille de l'image doit tre inférieur a 20Mo !
+espclient/annonces/FlashMsgErrExt;Extension de fichier incorrect pour l'image !
+espclient/annonces/FlashMsgAnnonceAjoutee;Annonce ajoutée
+espclient/annonces/FlashMsgAnnonceModif;Annonce modifiée
+espclient/annonces/FlashMsgAnnonceSuppr;Annonce supprimée
+espclient/annonces/FlashMsgNoDroitSuppr;Vous ne pouvez pas supprimer cet album
+espclient/annonces/flashMsg_ErrEnvoi;Erreur lors de l'envoi !
+espclient/annonces/FlashMsgExtFich1;Extension de fichier ---
+espclient/annonces/FlashMsgExtFich2; incorrect pour l'image !
+espclient/annonces/flashMsgNoDroitSuppr2;Vous ne disposez pas des droits de suppression.
+
+########################################
+#AnnuaireController
+######################################## 
+espclient/annuaire/identifiants;Identifiants
+espclient/annuaire/retourAnnuaire;Retour à l'annuaire
+espclient/annuaire/voirProfil;Voir le profil
+espclient/annuaire/contacter;Contacter
+espclient/annuaire/vide;Annuaire vide
+espclient/annuaire/utilisateur;Utilisateur
+espclient/annuaire/identite;Identité
+espclient/annuaire/statut;Statut
+espclient/annuaire/batiment;Batiment
+espclient/annuaire/etage;Etage
+espclient/annuaire/lot;Lot
+espclient/annuaire/statutUtilisateur;Statut de l'utilisateur
+espclient/annuaire/assignementProfil;Assignement profil
+espclient/annuaire/attentionModif;Attention : la modification de statut modifie les droits de l'utilisateur.
+espclient/annuaire/activation;Activation
+espclient/annuaire/activer;Activer
+espclient/annuaire/desactiver;Désactiver
+espclient/annuaire/supprimerDef;Supprimer définitivement
+espclient/annuaire/infoDesactiver;Pensez à désactiver cet utilisateur si vous souhaitez qu'il n'ait plus accs à la plateforme (ex: déménagement, comportement gnant, etc.).
+espclient/annuaire/envoyerMsgA;Envoyer un message à
+espclient/annuaire/profil;Profil
+espclient/annuaire/membreValidePar;Membre validé par
+espclient/annuaire/photoProfil;Photo de profil
+espclient/annuaire/lastActu;Dernires actualités
+espclient/annuaire/pasActu;Il n'y a acune actualité enregistrée pour
+espclient/annuaire/profilConsult;Ce profil a été consulté
+espclient/annuaire/profilConsultFin;fois depuis sa création.
+
+espclient/annuaire/fluxActionNewUtil;Nouvel utilisateur
+espclient/annuaire/fluxActionNewUtilAccept;Un nouvel utilisateur vient d'tre accepté.
+espclient/annuaire/mailActivationCompte;Activation de votre compte
+espclient/annuaire/mailBonjour;Bonjour,
+espclient/annuaire/mailContent1;Votre compte vient d'être activé sur 
+espclient/annuaire/mailContent2;Vous pouvez maintenant 
+espclient/annuaire/mailContent3;vous connecter 
+espclient/annuaire/mailContent4;à l'espace de votre copropriété. 
+espclient/annuaire/mailContent5;Si vous avez des questions, vous pouvez nous contacter via 
+espclient/annuaire/mailCordialement;Cordialement,
+espclient/annuaire/mailCordialement2;Marie, pour Résidéclic.
+espclient/annuaire/mailDesactivationCompte;Désactivation de votre compte
+espclient/annuaire/mailDesacContent1;L'activation de votre compte vient d'être refusée par un des membres de votre copropriété sur 
+espclient/annuaire/mailDesacContent2;(ou votre compte a été désactivé s'il était déjà actif). 
+espclient/annuaire/mailDesacContent3;Contactez votre conseil syndical pour plus d'informations.,
+espclient/annuaire/mailDesacContent4;Si vous avez des questions, vous pouvez nous contacter via 
+espclient/annuaire/flashMsgUtilNoExist;Cet utilisateur n'existe pas,
+espclient/annuaire/mailModifCompteSujet;Modification de votre compte
+espclient/annuaire/mailMotActive;activé,
+espclient/annuaire/mailMotDesactive;désactivé
+espclient/annuaire/mailMotSuppr;supprimé
+espclient/annuaire/mailPhrase;Vous pouvez maintenant
+espclient/annuaire/mailPhrase2;vous connecter
+espclient/annuaire/mailPhrase3;à l'espace de votre copropriété.
+espclient/annuaire/mailPhrase4;Vous ne pouvez plus
+espclient/annuaire/StatutModif;Votre statut a été modifié, vous êtes maintenant : 
+espclient/annuaire/StatutErreur;erreur.
+espclient/annuaire/mailModifContent1;Votre compte vient d'être 
+espclient/annuaire/mailModifContent2;Ce message a été généré automatiquement suite à la modification de votre profil par un membre du Conseil Syndical.
+espclient/annuaire/mailModifContent3;Si vous avez des questions, vous pouvez nous contacter via 
+espclient/annuaire/flashMsgModifOk;Modification enregistrées
+
+########################################
+#BlogController
+######################################## 
+espclient/blog/ArticleAjoute;Article ajouté
+espclient/blog/FlashMsgNoDroitModif;Vous ne pouvez pas modifier cet article
+espclient/blog/flashMsgArticleNoExist;Cet article n'existe pas
+espclient/blog/flashMsgModifEnr;Modification enregistrée
+espclient/blog/FlashMsgNoDroitSuppr;Vous ne pouvez pas supprimer cet article.
+espclient/blog/FlashMsgArtSuppr;Article supprimé
+espclient/blog/FlashMsgBlogNoExist;Ce blog n'existe pas
+
+########################################
+#Applications
+######################################## 
+espclient/applications/note;Note
+espclient/applications/noter;Noter
+espclient/applications/noterAppli;Noter cette application
+espclient/applications/ficheDetail;Voir la fiche détaillée...
+espclient/applications/installation;Installation
+espclient/applications/publieePar;Publiée par
+espclient/applications/equipeResideclic;L'équipe de Résidéclic
+espclient/applications/acheterAppli;Acheter l'application
+espclient/applications/installerAppli;Installer l'application
+espclient/applications/desinstallerAppli;Désinstaller l'application
+espclient/applications/acheter;Acheter
+espclient/applications/installer;Installer
+espclient/applications/confDesinstallerAppli;Etes-vous sur de vouloir désinstaller cette application ?
+espclient/applications/expireAppli;Votre application expirera le
+

@@ -1,0 +1,41 @@
+<? 
+	foreach($this->actualites as $actualite):
+		$actudate = strtotime(date("y-m-d",$actualite['date']));
+		if($this->session->lastdate != $actudate):
+			$this->session->lastdate = $actudate;
+?>
+<div class="col-md-12 newday">
+	<?=ucfirst(Lib_Date::duduDate($this->session->lastdate));?>
+</div>
+<div class="clearfix"></div>
+<? 		endif; ?>
+<div class="itemdiv commentdiv actualite" onclick="return <?=$actualite['url']?>_voir(<?=$actualite['idElement']?>);">
+	<div class="user">
+		<img src="/file/client/<?=Lib_Pic::profil($actualite['picAuteur'],$actualite['civAuteur'])?>" alt="<?=$actualite['pAuteur'].' '.$actualite['nAuteur']?>" />
+	</div>
+
+	<div class="body">
+		<div class="time text-right">
+			<i class="icon-time"></i>
+			<span class="green"><?=Lib_Date::duduDate($actualite['date'])?></span>
+			<br/>
+			<?if($actualite['nbCommentaires'] != 0):?>
+			<i class="icon-comments"></i>
+			<span class="blue"><?=$actualite['nbCommentaires']?> com.</span>
+			<?endif;?>
+		</div>
+
+		<div class="name">
+			<a href="#"><?=$actualite['pAuteur'].' '.$actualite['nAuteur']?></a>
+			<?=$actualite['action']?>
+		</div>
+
+		<div class="text">
+			<?=Lib_Securite::visibiliteFlux($actualite,$this->session->client);?>
+			<?=$actualite['titre']?>
+		</div>
+	</div>
+</div>
+<? 
+	endforeach; 
+?>

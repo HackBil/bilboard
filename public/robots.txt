@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /css/
+Disallow: /file/
+Disallow: /js/
+Disallow: /mail/
+Disallow: /min/
+Disallow: /src/

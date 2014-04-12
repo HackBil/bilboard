@@ -1,0 +1,164 @@
+<?
+	$this->headLink()
+		->appendStylesheet('/css/espclient/home/home.css');
+	$this->headScript()
+		->appendFile('/js/espclient/home/home.js','text/javascript');		
+?>
+<div id="index">
+	<div class="col-md-6 col-sm-12">
+		<div id="actualites">
+		<? 
+			foreach($this->actualites as $actualite):
+				$actudate = strtotime(date("y-m-d",$actualite['date']));
+				if($this->session->lastdate != $actudate):
+					$this->session->lastdate = $actudate;
+		?>
+			<div class="col-md-12 newday">
+				<?=ucfirst(Lib_Date::ericDate($this->session->lastdate));?>
+			</div>
+			<div class="clearfix"></div>
+			<? 		endif; ?>
+			<div class="itemdiv commentdiv actualite" onclick="return <?=$actualite['url']?>_voir(<?=$actualite['idElement']?>);">
+				<div class="user">
+					<img src="/file/client/<?=Lib_Pic::profil($actualite['picAuteur'],$actualite['civAuteur'])?>" alt="<?=$actualite['pAuteur'].' '.$actualite['nAuteur']?>" />
+				</div>
+
+				<div class="body">
+					<div class="time text-right">
+						<i class="icon-time"></i>
+						<span class="green"><?=Lib_Date::duduDate($actualite['date'])?></span>
+						<br/>
+						<?if($actualite['nbCommentaires'] != 0):?>
+						<i class="icon-comments"></i>
+						<span class="blue"><?=$actualite['nbCommentaires']?> com.</span>
+						<?endif;?>
+					</div>
+
+					<div class="name">
+						<a href="#"><?=$actualite['pAuteur'].' '.$actualite['nAuteur']?></a>
+						<?=$actualite['action']?>
+					</div>
+					<div class="text">
+						<?=Lib_Securite::visibiliteFlux($actualite,$this->session->client);?>
+						<?=$actualite['titre']?>
+					</div>
+				</div>
+			</div>
+			<? 
+				endforeach; 
+			?>
+		</div>
+		<div class="itemdiv commentdiv" id="actuLoading">
+			<button class="btn btn-light btn-block" onclick="home_index();">
+				<i class="icon-spinner icon-spin"></i> Cliquez pour charger plus d'actus !
+			</button>
+		</div>	
+	</div>
+	<div class="col-md-6 hidden-sm hidden-xs">
+		<div class="widget-box">
+			<div class="widget-header header-color-blue">
+				<h5 class="bigger lighter">
+					<i class="icon-bullhorn"></i>
+					<span id="alaune_titre"><?=$this->alaune['titre']?></span>
+				</h5>
+			<? if($this->session->client['copros'][0]['moderateur']):?>
+				<div class="widget-toolbar">
+					<button href="#" role="button" class="btn btn-xs btn-info bigger" onclick="return home_modifier(0);">
+						<i class="icon-pencil"></i>
+						Modifier
+					</button>
+				</div>			
+			<? endif; ?>	
+			</div>
+			<div class="widget-body">
+				<div class="widget-main" id="alaune">
+					<p id="alaune_contenu"><?=nl2br($this->alaune['contenu'])?></p>
+					<a id="alaune_lien" href="<?=$this->alaune['lien']?>" target="_blank" class="btn btn-xs btn-success pull-right <? if(empty($this->alaune['lien'])):?>hide<? endif;?>">En savoir plus</a>
+					<div class="clearfix"></div>
+				</div><!--/widget-main-->
+			</div><!--/widget-body-->
+		</div><!--/widget-box-->
+		<? if($this->session->client['copros'][0]['moderateur'] && count($this->inactifs)>0):?>
+		<div class="space-10"></div>
+		<div class="widget-box">
+			<div class="widget-header header-color-blue">
+				<h5 class="bigger lighter">
+					<i class="icon-group"></i>
+					Activation des profils
+				</h5>
+			</div>
+			<div class="widget-body">
+				<div class="widget-main no-padding">
+					<table class="table table-bordered table-striped" id="table_index">
+						<thead>
+							<tr>
+								<th>Civ</th>
+								<th>Nom</th>
+								<th>Prénom</th>
+								<th>Activation</th>
+							</tr>
+						</thead>
+						<tbody>
+						<? foreach($this->inactifs as $inactif): ?>
+							<tr>
+								<td><?=Lib_String::HF($inactif['civ'])?></td>
+								<td><?=$inactif['nom']?></td>
+								<td><?=$inactif['prenom']?></td>
+								<td>
+									<label>
+										<input onchange="return home_activer(<?=$inactif['idElt']?>,this);" name="switch-field-1" class="ace ace-switch ace-switch-6" type="checkbox">
+										<span class="lbl"></span>
+									</label>								
+								</td>
+							</tr>
+						<? endforeach; ?>
+						</tbody>
+					</table>
+				</div><!--/widget-main-->
+			</div><!--/widget-body-->
+		</div><!--/widget-box-->
+		<? endif; ?>
+		<div class="space-10"></div>
+		<div class="widget-box transparent">
+			<div class="widget-header">
+				<h5 class="bigger lighter">
+					<i class="icon-rss"></i>
+					Le Fil de Résidéclic
+				</h5>
+			</div>
+			<div class="widget-body">
+				<div class="widget-main">
+					<div class="comments">
+					<? $i=0; foreach($this->rss as $element): $i++; if($i>3) break; ?>
+						<div class="itemdiv commentdiv rss">
+							<div>
+								<? if($element->category() == "news"): ?>
+								<i class="pull-left thumbicon icon-bullhorn btn-info no-hover"></i>
+								<? elseif($element->category() == "tips"): ?>
+								<i class="pull-left thumbicon icon-magic btn-success no-hover"></i>
+								<? elseif($element->category() == "chezlescopains"): ?>
+								<i class="pull-left thumbicon icon-link btn-warning no-hover"></i>
+								<? endif; ?>
+							</div>
+							<div class="body">
+								<div class="name">
+									<a href="<?=$element->link()?>" target="_blank"><?=$element->title()?></a>
+								</div>
+								<div class="time">
+									<i class="icon-time"></i>
+									<span class="green"><?=Lib_Date::duduDate(strtotime($element->pubDate()))?></span>
+								</div>
+								<div class="text">
+									<i class="icon-quote-left"></i>
+									<?=$element->description()?>
+								</div>
+							</div>
+						</div>
+					<? endforeach; ?>
+					</div>
+				</div><!--/widget-main-->
+			</div><!--/widget-body-->
+		</div><!--/widget-box-->
+	</div>
+</div>
+<div id="voir"></div>
