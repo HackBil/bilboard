@@ -9,20 +9,10 @@ defined('ZEND_PATH')
 defined('APPLICATION_PUBLIC')
 	|| define('APPLICATION_PUBLIC', realpath(dirname(__FILE__)));
 // defined('DOMAIN')
-// 	|| define('DOMAIN', $_SERVER['SERVER_NAME']);
-defined('DOMAIN')
-	|| define('DOMAIN', "app.resideclic.com");
-
 if($_SERVER['SERVER_NAME']=="bilboard.dev") // Dev ou localhost
 {
-        define('APPLICATION_ENV', 'development');
-}elseif($_SERVER['SERVER_NAME'] == "dev.resideclic.com"){
-        define('APPLICATION_ENV', 'preprod');
-}else{
-        defined('APPLICATION_ENV')
-                || define('APPLICATION_ENV', (getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV') : 'production'));
+        define('APPLICATION_ENV', 'production');
 }
-
 // On définie l'encodage pour les fonctions multi-bytes.
 mb_internal_encoding ('UTF-8');
 
