@@ -9,10 +9,7 @@ defined('ZEND_PATH')
 defined('APPLICATION_PUBLIC')
 	|| define('APPLICATION_PUBLIC', realpath(dirname(__FILE__)));
 // defined('DOMAIN')
-if($_SERVER['SERVER_NAME']=="bilboard.dev") // Dev ou localhost
-{
-        define('APPLICATION_ENV', 'production');
-}
+define('APPLICATION_ENV', 'production');
 // On définie l'encodage pour les fonctions multi-bytes.
 mb_internal_encoding ('UTF-8');
 
