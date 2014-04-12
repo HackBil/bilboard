@@ -5,7 +5,6 @@
 ## Installation
 
 Dans le même répertoire que celui avec les ofs :
-� sur le dossier /beta/
 
     mkdir dendreo && cd dendreo
     git init
