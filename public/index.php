@@ -13,7 +13,7 @@ defined('APPLICATION_PUBLIC')
 defined('DOMAIN')
 	|| define('DOMAIN', "app.resideclic.com");
 
-if($_SERVER['SERVER_NAME']=="resideclic.dev") // Dev ou localhost
+if($_SERVER['SERVER_NAME']=="bilboard.dev") // Dev ou localhost
 {
         define('APPLICATION_ENV', 'development');
 }elseif($_SERVER['SERVER_NAME'] == "dev.resideclic.com"){
