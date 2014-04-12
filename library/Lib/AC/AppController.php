@@ -16,6 +16,8 @@ class Lib_AC_AppController extends Zend_Controller_Action
 			if($this->config != null)
 				$this->session->setExpirationSeconds($this->config->duree_session*3600);
         }
+        if(!isset($this->session->client))
+            $this->_redirect('/connexion');
         $this->view->session = $this->session;
         
 		//layout
