@@ -12,16 +12,20 @@
 			</div>
 			<!-- Basic form body -->
 			<div id="basic-form" class="collapse in">
-				<form role="form">
+				<form role="form" method="POST" action="/dailybil">
 				  <div class="form-group">
-					<label for="exampleInputEmail1">#Hashtags</label>
-					<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Entrez les hashtags que vous souhaitez partager...">
+					<label for="categories">#Hashtags</label>
+					<select class="form-control" name="categories[]" id="categories" multiple>
+					<? foreach($this->categories as $categorie) : ?>
+						<option value="<?=$categorie?>"><?=$categorie?></option>
+					<? endforeach; ?>
+					</select>
 				  </div>
 				  <div class="form-group">
 					<label for="exampleInputPassword1">Compte Twitter</label>
-					<select class="form-control">
-					<? foreach($this->accounts as $account) : ?>
-						<option value="<?=$account['connectionObject']?>"><?=$account['title']?></option>
+					<select class="form-control" name="token">
+					<? foreach($this->links as $link) : ?>
+						<option value="<?=$link['connectionObject']?>"><?=$link['title']?></option>
 					<? endforeach; ?>
 					</select>
 					<p class="help-block"><a href="/profil">Linker un nouveau compte</a></p>
@@ -51,13 +55,15 @@
 						</tr>
 					</thead>
 					<tbody>
+					<? foreach($this->searches as $key => $searchesByUser): ?>
+						<? foreach($searchesByUser as $search): ?>
 						<tr>
-						<? foreach($this->accounts as $account): ?>
-							<td><?="OK"?></td>
-							<td>Hashtags</td>
+							<td><?=$key?></td>
+							<td><?=implode(',',$search)?></td>
 							<td><a href="/dailybil/delete?token="><i class="fa fa-times"></i></a></td>
-						<? endforeach; ?>
 						</tr>
+						<? endforeach; ?>
+					<? endforeach; ?>
 					</tbody>
 				</table>
 			</div><!-- End div .table-responsive -->
