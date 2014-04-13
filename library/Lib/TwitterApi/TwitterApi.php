@@ -9,7 +9,7 @@ class Lib_TwitterApi_TwitterApi{
 	public $oauthAccessTokenSecret = '5AZClTO7X58U9Y0czAEWh2oFzzIHmWHAPTWek7VzRvz48';
 	public $apiKey = 'ivM1bxsD7faQCIq43iEGAw';
 	public $apiSecret = "piFOy3kxwkki0bdqw4amzN139x5WjJmGTmGLGlsJyH8";
-	public $redirectUri = 'http://127.0.0.1/link/twitter';
+	public $redirectUri = 'http://www.bilboard.fr/link/twitter';
 	
 	
 	private $_tmhOAuth;

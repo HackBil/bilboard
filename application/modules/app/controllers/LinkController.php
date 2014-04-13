@@ -49,15 +49,15 @@ class LinkController extends Lib_AC_AppController
 				 */
 				 
 				//check if this link already exists in our dd
-				$similarity = $linkModel->findByAttributes(array('user_id'=>$user_id, 'type'=>Model_Link::TYPE_TWITTER, 'tag'=>$credentials['user_id']));
+				$similarity = $linkModel->findByAttributes(array('idUser'=>$user_id, 'type'=>Model_Link::TYPE_TWITTER, 'tag'=>$credentials['user_id']));
 				
 				if(!$similarity){
 					//Process response and store token
 					$newLink = array();
-					$newLink['user_id'] = $user_id; // TODO get current user id
+					$newLink['idUser'] = $user_id; // TODO get current user id
 					$newLink['type'] = Model_Link::TYPE_TWITTER;
 					$newLink['title'] = $credentials['screen_name'];
-					$newLink['connection_object'] = json_encode($credentials);
+					$newLink['connectionObject'] = json_encode($credentials);
 					$newLink['tag'] = $credentials['user_id'];
 					
 					if($linkModel->insert($newLink)){
