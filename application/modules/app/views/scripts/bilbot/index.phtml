@@ -1,0 +1,46 @@
+<div class="page-heading animated fadeInDownBig">
+	<h1>Bilbot <small>Robot Twitter qui va te faire kicker ton compte</small></h1>
+</div>
+<div class="row">
+	<div class="col-sm-6">
+		<!-- Basic form -->
+		<div class="box-info">
+			<h2><strong>Enregistrer</strong> un nouveau robot</h2>
+			<!-- Additional button -->
+			<div class="additional-btn">
+				<a class="additional-icon" href="#fakelink"><i class="fa fa-question-circle"></i></a>
+			</div>
+			<!-- Basic form body -->
+			<div id="basic-form" class="collapse in">
+				<form role="form">
+				  <div class="form-group">
+					<label for="mentions">@mentions</label>
+					<input type="text" class="form-control" id="mentions" placeholder="Nommez les utilisateurs dont vous voulez profiter des followers...">
+				  </div>
+				  <div class="form-group">
+					<label for="twitter">Compte Twitter</label>
+					<select class="form-control">
+						
+					<? foreach($this->links as $link) : ?>
+						<option value="<?=$link['connectionObject']?>"><?=$link['title']?></option>
+					<? endforeach; ?>
+					</select>
+					<p class="help-block"><a href="/profil">Linker un nouveau compte</a></p>
+				  </div>
+				  <button class="btn btn-default" onclick="">Preview</button>
+				  <button type="submit" class="btn btn-default">Save</button>
+				</form>
+			</div><!-- End div #basic-form -->
+		</div><!-- End div .box-info -->
+	</div><!-- End div .col-sm-6 -->
+	<div class="col-sm-6">
+		<div class="box-info">
+			<h2><strong>Coming Soon...</strong></h2>
+		</div><!-- End div .box-info -->
+	</div>
+</div><!-- End div .row -->
+<div class="row">
+	<div class="col-sm-6">
+	</div><!-- End div .col-sm-6 -->
+</div>
+<div class="clearfix"></div>
