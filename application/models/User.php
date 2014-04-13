@@ -51,7 +51,7 @@ class Model_User extends Zend_Db_Table
 		return $this->_db->lastInsertId();
 	}
 
-	public function update($user,$userId)
+	public function update(array $user,$userId)
 	{
 		$data['lastname'] = $user['lastname'];
 		$data['firstname'] = $user['firstname'];
