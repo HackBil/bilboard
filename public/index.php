@@ -8,7 +8,9 @@ defined('ZEND_PATH')
 	|| define('ZEND_PATH', realpath(dirname(__FILE__) . '/../library'));
 defined('APPLICATION_PUBLIC')
 	|| define('APPLICATION_PUBLIC', realpath(dirname(__FILE__)));
-// defined('DOMAIN')
+defined('DOMAIN')
+	|| define('DOMAIN', $_SERVER['SERVER_NAME']);
+	// defined('DOMAIN')
 define('APPLICATION_ENV', 'production');
 // On définie l'encodage pour les fonctions multi-bytes.
 mb_internal_encoding ('UTF-8');
