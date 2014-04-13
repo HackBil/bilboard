@@ -182,7 +182,12 @@
 							<?php foreach($this->links as $link): ?>
 							
 								<li class="media">
-									<?php echo $link->title; ?>
+									<h4><?php echo Model_Link::getTypeLabel($link['type']); ?>
+									<?php echo $link['title']; ?></h4>
+									<form action="/link/delete" method="post">
+										<input type="hidden" name="id" value="<?php echo $link['id']; ?>"/>
+										<button type="submit" class="btn btn-link">Supprimer</button>
+									</form>
 								</li>
 							<?php endforeach; ?>
 						<?php endif; ?>

@@ -6,6 +6,22 @@ class Model_Link extends Zend_Db_Table
 	
 	protected $_name = 'links';
 
+	public static function getTypeLabel($type){
+		switch($type){
+			case self::TYPE_TWITTER:
+				return 'Twitter';
+			case self::TYPE_FACEBOOK:
+				return 'Facebook';
+			default:
+				return 'Type Inconnu';
+		}
+	}
+	
+	public function deleteById($id){
+		$where = array('links.id = ?' => $id);
+		return $this->delete($where);
+	}
+	
 	/**
 	 * Get a table row from an array of attributes to match
 	 * @param array $attributes - array of key=>values to match
