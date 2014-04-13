@@ -60,15 +60,11 @@ class LinkController extends Lib_AC_AppController
 					$newLink['connectionObject'] = json_encode($credentials);
 					$newLink['tag'] = $credentials['user_id'];
 					
-					if($linkModel->insert($newLink)){
-						$msg = '<strong>Awesome !</strong> Your twitter account has been successfully added.';
-						$this->flashMessenger->addMessage(array('message' => $msg, 'status' => 'success'));
-						
-					}
-					else{
-						$msg = '<strong>Error !</strong> Your twitter account has not been saved for an unknown reason.';
-						$this->flashMessenger->addMessage(array('message' => $msg, 'status' => 'error'));
-					}
+					$linkModel->insert($newLink);
+					
+					$msg = '<strong>Awesome !</strong> Your twitter account has been successfully added.';
+					$this->flashMessenger->addMessage(array('message' => $msg, 'status' => 'success'));
+
 				}
 				else{
 					$msg = '<strong>Error !</strong> You already linked this twitter account.';
@@ -81,6 +77,25 @@ class LinkController extends Lib_AC_AppController
 			}
 		}
 
+		$this->_redirect('/profil');
+	}
+
+	public function deleteAction(){
+		if(isset($_POST['id'])){
+			
+			$linkModel = new Model_Link();
+			$linkModel->deleteById($_POST['id']);
+			
+			$msg = 'Le lien avec le reseau social a été correctement supprimé.';	
+			$this->flashMessenger->addMessage(array('message' => $msg, 'status' => 'success'));
+			
+		}
+		else{
+			$msg = 'Vous ne pouvez pas acceder à cette action';	
+			$this->flashMessenger->addMessage(array('message' => $msg, 'status' => 'error'));
+			
+		}
+		
 		$this->_redirect('/profil');
 	}
 }
