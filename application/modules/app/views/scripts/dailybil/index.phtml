@@ -20,7 +20,9 @@
 				  <div class="form-group">
 					<label for="exampleInputPassword1">Compte Twitter</label>
 					<select class="form-control">
-						<option value="token">Copromatic</option>
+					<? foreach($this->accounts as $account) : ?>
+						<option value="<?=$account['connectionObject']?>"><?=$account['title']?></option>
+					<? endforeach; ?>
 					</select>
 					<p class="help-block"><a href="/profil">Linker un nouveau compte</a></p>
 				  </div>
@@ -50,9 +52,11 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td>Compte Twitter</td>
+						<? foreach($this->accounts as $account): ?>
+							<td><?="OK"?></td>
 							<td>Hashtags</td>
 							<td><a href="/dailybil/delete?token="><i class="fa fa-times"></i></a></td>
+						<? endforeach; ?>
 						</tr>
 					</tbody>
 				</table>

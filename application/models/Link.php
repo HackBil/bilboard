@@ -5,7 +5,7 @@ class Model_Link extends Zend_Db_Table
 	const TYPE_FACEBOOK = 2;
 	
 	protected $_name = 'links';
-	
+
 	/**
 	 * Get a table row from an array of attributes to match
 	 * @param array $attributes - array of key=>values to match
@@ -26,6 +26,5 @@ class Model_Link extends Zend_Db_Table
 	public function insert(array $data){
 		//TODO check data
 		parent::insert($data);
-	}
-	
+	}	
 }
