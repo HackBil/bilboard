@@ -84,8 +84,8 @@
 						</a>
 						<div class="media-body">
 							Welcome back,
-							<h4 class="media-heading"><strong><?=$this->session->client['firstname']?></strong></h4>
-							<a href="/profil">Editer</a>
+							<h4 class="media-heading"><strong><?=$this->session->user['firstname']?></strong></h4>
+							<a href="/profil">Profil</a>
 							<a class="md-trigger" data-modal="logout-modal-alt">Se déconnecter</a>
 						</div><!-- End div .media-body -->
 					</div><!-- End div .media -->
@@ -248,7 +248,7 @@
 							
 								<!-- Dropdown User session -->
 								<li class="dropdown">
-									<a href="#fakelink" class="dropdown-toggle" data-toggle="dropdown">Yo, <strong><?=$this->session->client['firstname']?> <?=$this->session->client['lastname']?></strong> <i class="fa fa-chevron-down i-xs"></i></a>
+									<a href="#fakelink" class="dropdown-toggle" data-toggle="dropdown">Yo, <strong><?=$this->session->user['firstname']?> <?=$this->session->user['lastname']?></strong> <i class="fa fa-chevron-down i-xs"></i></a>
 									<ul class="dropdown-menu animated half flipInX">
 										<li><a class="md-trigger" href="/connexion/index/deconnexion">Se déconnecter</a></li>
 									</ul>
@@ -269,19 +269,10 @@
 			<!-- START YOUR CONTENT HERE -->
 			<!-- ============================================================== -->
             <div class="body content rows scroll-y">
-				
-				<!-- Page header -->
-				<div class="page-heading animated fadeInDownBig">
-					<h1>Blank Page <small>lorem ipsum dolor</small></h1>
-				</div>
-				<!-- End page header -->
-				
 				<?=$this->layout()->content;?>
-				
-				
 				<!-- Footer -->
 				<footer>
-				&copy; 2014 <a href="http://boostinlyon.fr" target="_blank">BoostInLyon</a>. Design with love by un thème à 16$</a>
+					Design with <i class="fa fa-heart"></i> by <a href="http://isohdesign.com" target="_blank">Isoh Design Studio</a> from <a href="#fakelink">Yogyakarta, ID</a>
 				</footer>
 				<!-- End Footer -->
 			
