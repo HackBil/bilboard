@@ -17,24 +17,24 @@ class connexion_IndexController extends Lib_AC_ConnexionController
     {
 		if(isset($this->remember) && $this->remember!="")
 		{
-			$this->session->client = $this->mUser->get($this->remember);
+			$this->session->user = $this->mUser->get($this->remember);
 		}
 		if(isset($_POST['mail']))
 		{
 			$idClient = $this->mUser->login($_POST['mail'],$_POST['pass']);
-			$this->session->client = $this->mUser->get($idClient);
+			$this->session->user = $this->mUser->get($idClient);
 		}
 		if((isset($_POST['remember']) && $_POST['remember']=="true") || (isset($this->remember) && $this->remember!=""))
 		{
 			setcookie('remember', $idClient , (time() + 3600*24*7),"/","bilboard.fr");
 		}
-        if(isset($this->session->client))
+        if(isset($this->session->user))
         {
-        	if($this->session->client['activ'])
+        	if($this->session->user['activ'])
             	$this->_redirect('/');
             else
             {
-				unset($this->session->client);
+				unset($this->session->user);
             	$this->_redirect('/connexion/index/inactiv');
             }
         }
