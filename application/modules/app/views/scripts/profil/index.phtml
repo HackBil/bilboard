@@ -12,13 +12,13 @@
 				<h2><strong><?=$this->session->user['firstname']?> <?=$this->session->user['lastname']?>'s</strong> Profile</h2>
 				<div class="row">
 					<div class="col-md-4">
-						<img src="assets/img/avatar/masarie.jpg" class="img-circle" alt="Avatar">
+						<img src="/img/avatar/masarie.jpg" class="img-circle" alt="Avatar">
 					</div>
 					<div class="col-md-8">
 						<!-- User identity -->
 						<div class="user-identity">
 							<h4><strong><?=$this->session->user['firstname']?> <?=$this->session->user['lastname']?></strong></h4>
-							<p><i class="fa fa-map-marker"></i> Yogyakarta, ID</p>
+							<p><i class="fa fa-map-marker"></i> Lyon, FR</p>
 						</div><!-- End div .user-identity -->
 					</div>
 				</div>
@@ -90,10 +90,8 @@
 		<div class="box-info full">
 			<!-- Nav tab -->
 			<ul class="nav nav-tabs nav-justified">
-			  <li class="active"><a href="#about" data-toggle="tab"><i class="fa fa-user"></i> About</a></li>
-			  <li><a href="#edit-profile" data-toggle="tab"><i class="fa fa-pencil"></i> Edit</a></li>
-			  <li><a href="#user-links" data-toggle="tab"><i class="fa fa-laptop"></i> Social Links</a></li>
-			  <li><a href="#mymessage" data-toggle="tab"><i class="fa fa-envelope"></i> Message</a></li>
+			  <li class="active"><a href="#about" data-toggle="tab"><i class="fa fa-cogs"></i> Settings</a></li>
+			  <li><a href="#edit-profile" data-toggle="tab"><i class="fa fa-user"></i> Edit</a></li>
 			</ul>
 			<!-- End nav tab -->
 
@@ -102,33 +100,33 @@
 				<!-- Tab about -->
 				<div class="tab-pane active animated fadeInRight" id="about">
 					<div class="user-profile-content">
-						<h5><strong>ABOUT</strong> ME</h5>
-						<p>
-						Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. 
-						</p>
+						<h5><strong>Social Connect</strong></h5>
 						<hr />
 						<div class="row">
 							<div class="col-sm-6">
-								<h5><strong>CONTACT</strong> ME</h5>
-									<address>
-										<strong>Phone</strong><br>
-										<abbr title="Phone">+62 857 123 4567</abbr>
-									</address>
-									<address>
-										<strong>Email</strong><br>
-										<a href="mailto:#">first.last@example.com</a>
-									</address>
-									<address>
-										<strong>Website</strong><br>
-										<a href="http://ariecupu.com">http://ariecupu.com</a>
-									</address>
+								<div class="box-info full">
+									<div class="table-responsive">
+										<table data-sortable="" class="table" data-sortable-initialized="true">
+											<thead>
+												<tr>
+													<th>Profil</th>
+													<th>Disconnect</th>
+												</tr>
+											</thead>
+											<tbody>
+											<? foreach($this->links as $link): ?>
+												<tr>
+													<td><i class="fa fa-<?=strtolower(Model_Link::getTypeLabel($link['type']))?>"></i> <?=$link['title']?></td>
+													<td><a class="btn btn-danger btn-xs" href="/link/delete?id=<?=$link['id']?>"><i class="fa fa-times"></i> Disconnect</a></td>
+												</tr>
+											<? endforeach; ?>
+											</tbody>
+										</table>
+									</div><!-- End div .table-responsive -->
+								</div>		<!-- Horizontal form -->
 							</div>
 							<div class="col-sm-6">
-								<h5><strong>MY</strong> SKILLS</h5>
-								<p>UI Design</p>
-								<p>Clean and Modern Web Design</p>
-								<p>PHP and MySQL Programming</p>
-								<p>Vector Design</p>
+								<a class="btn btn-twitter btn-block" href="/link/twitter"><i class="fa fa-twitter"></i> Connect</a>
 							</div>
 						</div><!-- End div .row -->
 					</div><!-- End div .user-profile-content -->
@@ -139,161 +137,29 @@
 				<!-- Tab edit profile -->
 				<div class="tab-pane animated fadeInRight" id="edit-profile">
 					<div class="user-profile-content">
-						<form role="form">
+						<form role="form" method="POST" action="/profil">
 							<div class="form-group">
-								<label for="FullName">Full Name</label>
-								<input type="text" class="form-control" id="FullName" value="Mas Bro Rusmanto">
+								<label for="firstname">Firstname</label>
+								<input type="text" class="form-control" id="firstname" name="firstname" value="<?=$this->session->user['firstname']?>">
 							</div>
 							<div class="form-group">
-								<label for="Email">Email</label>
-								<input type="email" class="form-control" id="Email" value="first.last@example.com">
+								<label for="lastname">Lastname</label>
+								<input type="text" class="form-control" id="lastname" name="lastname" value="<?=$this->session->user['lastname']?>">
 							</div>
 							<div class="form-group">
-								<label for="Username">Username</label>
-								<input type="text" class="form-control" id="Username" value="masbro">
+								<label for="mail">Email</label>
+								<input type="email" class="form-control" id="mail" name="mail" value="<?=$this->session->user['mail']?>">
 							</div>
 							<div class="form-group">
-								<label for="Password">Password</label>
-								<input type="password" class="form-control" id="Password" placeholder="6 - 15 Characters">
-							</div>
-							<div class="form-group">
-								<label for="RePassword">Re-Password</label>
-								<input type="password" class="form-control" id="RePassword" placeholder="6 - 15 Characters">
-							</div>
-							<div class="form-group">
-								<label for="AboutMe">About Me</label>
-								<textarea class="form-control" id="AboutMe" style="height: 125px;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</textarea>
+								<label for="pass">Password</label>
+								<input type="password" class="form-control" id="pass" name="pass" placeholder="New password">
 							</div>
 							<button type="submit" class="btn btn-primary">Save</button>
 						</form>
 					</div><!-- End div .user-profile-content -->
 				</div><!-- End div .tab-pane -->
 			  	<!-- End Tab Edit profile -->
-				
-				
-				<!-- Tab user links -->
-				<div class="tab-pane animated fadeInRight" id="user-links">
-					<div class="scroll-user-widget">
-						<a href="/link/twitter" title="Ajouter un compte Twitter">
-							<button type="button" class="btn btn-info">Ajouter un compte Twitter</button>
-						</a>
-						<ul class="media-list">
-						<?php if(is_array($this->links)): ?>
-							<?php foreach($this->links as $link): ?>
-							
-								<li class="media">
-									<h4><?php echo Model_Link::getTypeLabel($link['type']); ?>
-									<?php echo $link['title']; ?></h4>
-									<form action="/link/delete" method="post">
-										<input type="hidden" name="id" value="<?php echo $link['id']; ?>"/>
-										<button type="submit" class="btn btn-link">Supprimer</button>
-									</form>
-								</li>
-							<?php endforeach; ?>
-						<?php endif; ?>
-						</ul>
-					</div><!-- End div .scroll-user-widget -->
-				</div><!-- End div .tab-pane -->
 				<!-- End Tab user links -->
-				
-				<!-- Tab user messages -->
-				<div class="tab-pane animated fadeInRight" id="mymessage">
-					<div class="scroll-user-widget">
-						<ul class="media-list">
-						  <li class="media">
-							<a class="pull-left" href="#fakelink">
-							  <img class="media-object" src="assets/img/avatar/2.jpg" alt="Avatar">
-							</a>
-							<div class="media-body">
-							  <h4 class="media-heading"><a href="#fakelink">John Doe</a> <small>Just now</small></h4>
-							  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-							</div>
-						  </li>
-						  <li class="media">
-							<a class="pull-left" href="#fakelink">
-							  <img class="media-object" src="assets/img/avatar/1.jpg" alt="Avatar">
-							</a>
-							<div class="media-body">
-							  <h4 class="media-heading"><a href="#fakelink">Annisa</a> <small>Yesterday at 04:00 AM</small></h4>
-							  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam rhoncus</p>
-							</div>
-						  </li>
-						  <li class="media">
-							<a class="pull-left" href="#fakelink">
-							  <img class="media-object" src="assets/img/avatar/5.jpg" alt="Avatar">
-							</a>
-							<div class="media-body">
-							  <h4 class="media-heading"><a href="#fakelink">Rusmanovski</a> <small>January 17, 2014 05:35 PM</small></h4>
-							  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-							</div>
-						  </li>
-						  <li class="media">
-							<a class="pull-left" href="#fakelink">
-							  <img class="media-object" src="assets/img/avatar/4.jpg" alt="Avatar">
-							</a>
-							<div class="media-body">
-							  <h4 class="media-heading"><a href="#fakelink">Ari Rusmanto</a> <small>January 17, 2014 05:35 PM</small></h4>
-							  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-							</div>
-						  </li>
-						  <li class="media">
-							<a class="pull-left" href="#fakelink">
-							  <img class="media-object" src="assets/img/avatar/3.jpg" alt="Avatar">
-							</a>
-							<div class="media-body">
-							  <h4 class="media-heading"><a href="#fakelink">Jenny Doe</a> <small>January 17, 2014 05:35 PM</small></h4>
-							  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-							</div>
-						  </li>
-						  <li class="media">
-							<a class="pull-left" href="#fakelink">
-							  <img class="media-object" src="assets/img/avatar/2.jpg" alt="Avatar">
-							</a>
-							<div class="media-body">
-							  <h4 class="media-heading"><a href="#fakelink">John Doe</a> <small>Just now</small></h4>
-							  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-							</div>
-						  </li>
-						  <li class="media">
-							<a class="pull-left" href="#fakelink">
-							  <img class="media-object" src="assets/img/avatar/1.jpg" alt="Avatar">
-							</a>
-							<div class="media-body">
-							  <h4 class="media-heading"><a href="#fakelink">Annisa</a> <small>Yesterday at 04:00 AM</small></h4>
-							  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam rhoncus</p>
-							</div>
-						  </li>
-						  <li class="media">
-							<a class="pull-left" href="#fakelink">
-							  <img class="media-object" src="assets/img/avatar/5.jpg" alt="Avatar">
-							</a>
-							<div class="media-body">
-							  <h4 class="media-heading"><a href="#fakelink">Rusmanovski</a> <small>January 17, 2014 05:35 PM</small></h4>
-							  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-							</div>
-						  </li>
-						  <li class="media">
-							<a class="pull-left" href="#fakelink">
-							  <img class="media-object" src="assets/img/avatar/4.jpg" alt="Avatar">
-							</a>
-							<div class="media-body">
-							  <h4 class="media-heading"><a href="#fakelink">Ari Rusmanto</a> <small>January 17, 2014 05:35 PM</small></h4>
-							  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-							</div>
-						  </li>
-						  <li class="media">
-							<a class="pull-left" href="#fakelink">
-							  <img class="media-object" src="assets/img/avatar/3.jpg" alt="Avatar">
-							</a>
-							<div class="media-body">
-							  <h4 class="media-heading"><a href="#fakelink">Jenny Doe</a> <small>January 17, 2014 05:35 PM</small></h4>
-							  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-							</div>
-						  </li>
-						</ul>
-					</div><!-- End div .scroll-user-widget -->
-				</div><!-- End div .tab-pane -->
-				<!-- End Tab user messages -->
 			</div><!-- End div .tab-content -->
 		</div><!-- End div .box-info -->
 	</div><!-- End div .col-sm-8 -->

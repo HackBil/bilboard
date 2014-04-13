@@ -81,10 +81,10 @@ class LinkController extends Lib_AC_AppController
 	}
 
 	public function deleteAction(){
-		if(isset($_POST['id'])){
+		if(isset($_GET['id'])){
 			
 			$linkModel = new Model_Link();
-			$linkModel->deleteById($_POST['id']);
+			$linkModel->deleteById($_GET['id']);
 			
 			$msg = 'Le lien avec le reseau social a été correctement supprimé.';	
 			$this->flashMessenger->addMessage(array('message' => $msg, 'status' => 'success'));

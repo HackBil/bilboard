@@ -56,7 +56,7 @@ class Model_User extends Zend_Db_Table
 		$data['lastname'] = $user['lastname'];
 		$data['firstname'] = $user['firstname'];
 		$data['mail'] = $user['mail'];
-		$data['pass'] = Lib_Pass::encode($user['pass']);
+		if(isset($user['pass'])) $data['pass'] = Lib_Pass::encode($user['pass']);
 		$where =  array ('id = ?' => $userId);
 		$this->_db->update('user', $data, $where);
 	}

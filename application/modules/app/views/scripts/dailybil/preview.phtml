@@ -1,3 +1,4 @@
+<? if($this->preview):?>
 <? foreach($this->preview as $tweet): ?>
 <div class="the-notes info">
 	<p>
@@ -5,3 +6,9 @@
 	</p>
 </div>
 <? endforeach; ?>
+<? else: ?>
+<div class="the-notes danger">
+	<h4>Pas de tweets avec ces hashtags</h4>
+	<p>Nous n'avons pas de ressources associés à l'intersection de ces hashtags. Il faudrait se mettre à faire de la veille !</p>
+</div>
+<? endif; ?>

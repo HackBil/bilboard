@@ -17,6 +17,8 @@ class DailybilController extends Lib_AC_AppController
 		}
 		$this->view->categories = Lib_Dailybil_Api::categories();
 		$links = $this->mLink->findAllByAttributes(array('idUser'=>$this->session->user['id'],'type'=>Model_Link::TYPE_TWITTER));
+		
+		$searches = array();		
 		foreach($links as $link)
 		{
 			$searches[$link['title']]= Lib_Dailybil_Api::searches("abcd");
@@ -28,6 +30,9 @@ class DailybilController extends Lib_AC_AppController
 	public function previewAction()
 	{
 		$this->_helper->layout->disableLayout();
-		$this->view->preview = Lib_Dailybil_Api::preview($_POST['categories']);	
+		if(!isset($_POST['categories']))
+			$this->view->preview = false;
+		else
+			$this->view->preview = Lib_Dailybil_Api::preview($_POST['categories']);	
 	}
 }
