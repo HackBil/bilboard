@@ -54,4 +54,19 @@ class Lib_Dailybil_Api
 		curl_close($ch);
 		return $searches;
 	}
+
+	public function preview($categories)
+	{
+		$url = 'http://dailybil.herokuapp.com/preview';
+		$get = '?categories='.urlencode(implode(",",$categories));
+		$ch = curl_init();
+		curl_setopt($ch,CURLOPT_URL,$url.$get);
+		curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+		if($tweets = curl_exec($ch)) {
+			$tweets = Zend_Json::decode($tweets);
+		}
+		//close connection 
+		curl_close($ch);
+		return $tweets;
+	}
 }

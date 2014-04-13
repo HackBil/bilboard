@@ -24,4 +24,10 @@ class DailybilController extends Lib_AC_AppController
 		$this->view->searches = $searches;
 		$this->view->links = $links;
 	}
+
+	public function previewAction()
+	{
+		$this->_helper->layout->disableLayout();
+		$this->view->preview = Lib_Dailybil_Api::preview($_POST['categories']);	
+	}
 }
