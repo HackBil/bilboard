@@ -1,3 +1,63 @@
 <div class="page-heading animated fadeInDownBig">
 	<h1>Dailybil <small>CM as a service</small></h1>
 </div>
+<div class="row">
+	<div class="col-sm-6">
+		<!-- Basic form -->
+		<div class="box-info">
+			<h2><strong>Enregistrer</strong> un nouveau filtre</h2>
+			<!-- Additional button -->
+			<div class="additional-btn">
+				<a class="additional-icon" href="#fakelink"><i class="fa fa-question-circle"></i></a>
+			</div>
+			<!-- Basic form body -->
+			<div id="basic-form" class="collapse in">
+				<form role="form">
+				  <div class="form-group">
+					<label for="exampleInputEmail1">#Hashtags</label>
+					<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Entrez les hashtags que vous souhaitez partager...">
+				  </div>
+				  <div class="form-group">
+					<label for="exampleInputPassword1">Compte Twitter</label>
+					<select class="form-control">
+						<option value="token">Copromatic</option>
+					</select>
+					<p class="help-block"><a href="/profil">Linker un nouveau compte</a></p>
+				  </div>
+				  <button class="btn btn-default" onclick="">Preview</button>
+				  <button type="submit" class="btn btn-default">Save</button>
+				</form>
+			</div><!-- End div #basic-form -->
+		</div><!-- End div .box-info -->
+	</div><!-- End div .col-sm-6 -->
+	<div class="col-sm-6">
+		<div class="box-info">
+			<h2><strong>Preview</strong></h2>
+		</div><!-- End div .box-info -->
+	</div>
+</div><!-- End div .row -->
+<div class="row">
+	<div class="col-sm-6">
+		<div class="box-info full">
+			<div class="table-responsive">
+				<table data-sortable="" class="table" data-sortable-initialized="true">
+					<thead>
+						<tr>
+							<th>Compte</th>
+							<th>Hashtags</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Compte Twitter</td>
+							<td>Hashtags</td>
+							<td><a href="/dailybil/delete?token="><i class="fa fa-times"></i></a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div><!-- End div .table-responsive -->
+		</div>		<!-- Horizontal form -->
+	</div><!-- End div .col-sm-6 -->
+</div>
+<div class="clearfix"></div>
