@@ -29,6 +29,9 @@
 	<link href="/third/magnific-popup/magnific-popup.css" rel="stylesheet"> 
 	<link href="/third/datepicker/css/datepicker.css" rel="stylesheet">
 
+	<link href="/css/surcouche.css" rel="stylesheet">
+
+
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
@@ -61,7 +64,7 @@
 		<!-- Your logo goes here -->
 		<div class="logo-brand header sidebar rows">
 			<div class="logo">
-				<h1><a href="/"><i class="fa fa-rocket"></i> BILBOARD</h1>
+				<h1><a href="/"><i class="fa fa-rocket"></i>&nbsp;&nbsp;BILBOARD</h1>
 			</div>
 		</div><!-- End div .header .sidebar .rows -->
 	
@@ -81,9 +84,9 @@
 						</a>
 						<div class="media-body">
 							Welcome back,
-							<h4 class="media-heading"><strong>Mas Bro</strong></h4>
-							<a href="user-profile.html">Edit</a>
-							<a class="md-trigger" data-modal="logout-modal-alt">Logout</a>
+							<h4 class="media-heading"><strong><?=$this->session->client['firstname']?></strong></h4>
+							<a href="/profil">Editer</a>
+							<a class="md-trigger" data-modal="logout-modal-alt">Se déconnecter</a>
 						</div><!-- End div .media-body -->
 					</div><!-- End div .media -->
 					
@@ -100,62 +103,9 @@
 					<!-- Sidebar menu -->				
 					<div id="sidebar-menu">
 						<ul>
-							<li><a href="index.html"><i class="fa fa-home"></i> Dashboard</a></li>
-							<li><a href="#fakelink"><i class="fa fa-leaf"></i> Frontend <span class="label label-danger new-circle">COMING SOON</span></a></li>
-							<li><a href="#fakelink"><i class="fa fa-bug"></i><i class="fa fa-angle-double-down i-right"></i> Elements</a>
-								<ul>
-									<li><a href="element-primary.html"><i class="fa fa-angle-right"></i> Primary <span class="label label-success new-circle">UPDATED</span></a></li>
-									<li><a href="element-extended.html"><i class="fa fa-angle-right"></i> Extended</a></li>
-								</ul>
-							</li>
-							<li><a href="#fakelink"><i class="fa fa-code"></i><i class="fa fa-angle-double-down i-right"></i> Widgets</a>
-								<ul>
-									<li><a href="widget-awesome.html"><i class="fa fa-angle-right"></i> Awesome <span class="label label-danger new-circle">+5 new</span></a></li>
-									<li><a href="widget-grid.html"><i class="fa fa-angle-right"></i> Grid</a></li>
-								</ul>
-							</li>
-							<li><a href="#fakelink"><i class="fa fa-edit"></i><i class="fa fa-angle-double-down i-right"></i> Forms</a>
-								<ul>
-									<li><a href="form-element.html"><i class="fa fa-angle-right"></i> Form Element</a></li>
-									<li><a href="form-wizard.html"><i class="fa fa-angle-right"></i> Form Wizard</a></li>
-									<li><a href="form-validation.html"><i class="fa fa-angle-right"></i> Form Validation</a></li>
-								</ul>
-							</li>
-							<li><a href="tables.html"><i class="fa fa-table"></i> Tables</a></li>
-							<li><a href="gallery.html"><i class="fa fa-picture-o"></i><i class="fa fa-star i-right yellow"></i> Gallery</a></li>
-							<li><a href="morris.html"><i class="fa fa-bar-chart-o"></i> Graph / Chart</a></li>
-							<li class="active"><a href="#fakelink"><i class="fa fa-home"></i><i class="fa fa-angle-double-down i-right"></i> Pages <span class="label label-success new-circle animated double shake span-left">13</span></a>
-								<ul class="visible">
-									<li><a href="login.html"><i class="fa fa-angle-right"></i> Login</a></li>
-									<li><a href="lock-screen.html"><i class="fa fa-angle-right"></i> Lock Screen</a></li>
-									<li><a href="forgot-password.html"><i class="fa fa-angle-right"></i> Forgot Password</a></li>
-									<li><a href="register.html"><i class="fa fa-angle-right"></i> Register</a></li>
-									<li><a href="user-profile.html"><i class="fa fa-angle-right"></i> User Profile</a></li>
-									<li><a href="user-profile-2.html"><i class="fa fa-angle-right"></i> User Profile 2 <span class="label label-danger new-circle">NEW</span></a></li>
-									<li><a href="empty-data.html"><i class="fa fa-angle-right"></i> Empty Data <span class="label label-danger new-circle">NEW</span></a></li>
-									<li><a href="invoice.html"><i class="fa fa-angle-right"></i> Invoice</a></li>
-									<li><a href="pricing-table.html"><i class="fa fa-angle-right"></i> Pricing Table <span class="label label-success new-circle">UPDATED</span></a></li>
-									<li><a href="faq.html"><i class="fa fa-angle-right"></i> FAQ</a></li>
-									<li><a href="search-result.html"><i class="fa fa-angle-right"></i> Search Result <span class="label label-success new-circle">UPDATED</span></a></li>
-									<li><a href="404.html"><i class="fa fa-angle-right"></i> 404</a></li>
-									<li class="active"><a href="blank.html"><i class="fa fa-angle-right"></i> Blank</a></li>
-								</ul>
-							</li>
-							<li><a href="#fakelink"><i class="fa fa-smile-o"></i><i class="fa fa-angle-double-down i-right"></i> Icons</a>
-								<ul>
-									<li><a href="font-awesome.html"><i class="fa fa-angle-right"></i> Font Awesome</a></li>
-									<li><a href="glyphicons.html"><i class="fa fa-angle-right"></i> Glyphicons</a></li>
-									<li><a href="weather-icons.html"><i class="fa fa-angle-right"></i> Weather icons <span class="label label-danger new-circle">NEW</span></a></li>
-								</ul>
-							</li>
-							<li><a href="#fakelink"><i class="fa fa-envelope"></i><i class="fa fa-angle-double-down i-right"></i> Message  <span class="label label-success new-circle span-left">UPDATED</span></a>
-								<ul>
-									<li><a href="inbox.html"><i class="fa fa-angle-right"></i> Inbox</a></li>
-									<li><a href="new-message.html"><i class="fa fa-angle-right"></i> New Message</a></li>
-									<li><a href="reply-message.html"><i class="fa fa-angle-right"></i> Reply Message <span class="label label-danger new-circle">NEW</span></a></li>
-									<li><a href="read-message.html"><i class="fa fa-angle-right"></i> Read Message</a></li>
-								</ul>
-							</li>
+							<li><a href="/"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+							<li><a href="/bilbot"><i class="fa fa-twitter"></i> Bilbot</a></li>
+							<li><a href="/dailybil"><i class="fa fa-tags"></i> DailyBil</a></li>
 						</ul>
 						<div class="clear"></div>
 					</div><!-- End div #sidebar-menu -->
@@ -199,25 +149,6 @@
 						
 						<!-- Navbar collapse -->	
 						<div class="navbar-collapse collapse">
-						
-							<!-- Left navbar -->
-							<ul class="nav navbar-nav">
-								<li>
-									<a href="#fakelink">
-										<i class="fa fa-cog"></i>
-									</a>
-								</li>
-								
-								<!-- Dropdown language -->
-								<li class="dropdown">
-									<a href="#fakelink" class="dropdown-toggle" data-toggle="dropdown">English (US) <i class="fa fa-chevron-down i-xs"></i></a>
-									<ul class="dropdown-menu animated half flipInX">
-										<li><a href="#fakelink">English (British)</a></li>
-										<li><a href="#fakelink">Bahasa Indonesia</a></li>
-										<li><a href="#fakelink">French</a></li>
-									</ul>
-								</li>
-							</ul>
 						
 							<!-- Right navbar -->
 							<ul class="nav navbar-nav navbar-right top-navbar">
@@ -317,16 +248,9 @@
 							
 								<!-- Dropdown User session -->
 								<li class="dropdown">
-									<a href="#fakelink" class="dropdown-toggle" data-toggle="dropdown">Howdy, <strong>Mas Bro</strong> <i class="fa fa-chevron-down i-xs"></i></a>
+									<a href="#fakelink" class="dropdown-toggle" data-toggle="dropdown">Yo, <strong><?=$this->session->client['firstname']?> <?=$this->session->client['lastname']?></strong> <i class="fa fa-chevron-down i-xs"></i></a>
 									<ul class="dropdown-menu animated half flipInX">
-										<li><a href="#fakelink">My Profile</a></li>
-										<li><a href="#fakelink">Change Password</a></li>
-										<li><a href="#fakelink">Account Setting</a></li>
-										<li class="divider"></li>
-										<li class="dropdown-header">Another action</li>
-										<li><a href="#fakelink">Help</a></li>
-										<li><a href="lock-screen.html">Lock me</a></li>
-										<li><a class="md-trigger" data-modal="logout-modal">Logout</a></li>
+										<li><a class="md-trigger" href="/connexion/index/deconnexion">Se déconnecter</a></li>
 									</ul>
 								</li>
 								<!-- End Dropdown User session -->
