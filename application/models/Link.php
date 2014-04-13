@@ -10,16 +10,21 @@ class Model_Link extends Zend_Db_Table
 	 * Get a table row from an array of attributes to match
 	 * @param array $attributes - array of key=>values to match
 	 */
-	public function findByAttributes($attributes){
-
+	public function findAllByAttributes($attributes){
+		
 		$select = $this->_db->select()
-				->from('links',array('*','idElt'=>'id'));
+				->from('links',array('*'));
 		
 		foreach($attributes as $key=>$attr){
 			$select = $select->where('links.'.$key.' = ?', $attr );
 		}
 		
-		return $select->query()->fetch();
+		return $select->query()->fetchAll();
+	}
+	
+	public function findByAttributes($attributes){
+		$all = $this->findAllByAttributes($attributes);
+		return $all[0];
 	}
 	
 	

@@ -15,8 +15,10 @@ class LinkController extends Lib_AC_AppController
 		$this->view->variable = "Front View to add your social links account";
 	}
 	
-	
-	public function twitterAction($oauth_token = null, $oauth_verifier = null, $denied = null){
+	/**
+	 * Action that handles twitter calls and link creation in db
+	 */
+	public function twitterAction(){
 		$oauth_token = isset($_GET['oauth_token']) ? $_GET['oauth_token'] : null;
 		$oauth_verifier = isset($_GET['oauth_verifier']) ? $_GET['oauth_verifier'] : null;
 		
@@ -25,7 +27,8 @@ class LinkController extends Lib_AC_AppController
 		$user_id = $this->session->user['id'];
 
 		if(isset($_GET['denied'])){
-			//TODO error message '<strong>Error !</strong> Your twitter account has not been linked because you denied the access.'
+			$msg = '<strong>Error !</strong> Your twitter account has not been linked because you denied the access.';
+			$this->flashMessenger->addMessage(array('message' => $msg, 'status' => 'error'));
 		}
 		else if(!$oauth_token || !$oauth_verifier){
 			$params = array(
@@ -58,18 +61,23 @@ class LinkController extends Lib_AC_AppController
 					$newLink['tag'] = $credentials['user_id'];
 					
 					if($linkModel->insert($newLink)){
-						//TODO '<strong>Awesome !</strong> Your twitter account has been successfully added.'
+						$msg = '<strong>Awesome !</strong> Your twitter account has been successfully added.';
+						$this->flashMessenger->addMessage(array('message' => $msg, 'status' => 'success'));
+						
 					}
 					else{
-						//TODO '<strong>Error !</strong> Your twitter account has not been saved for an unknown reason.'
+						$msg = '<strong>Error !</strong> Your twitter account has not been saved for an unknown reason.';
+						$this->flashMessenger->addMessage(array('message' => $msg, 'status' => 'error'));
 					}
 				}
 				else{
-					//TODO '<strong>Error !</strong> You already linked this twitter account.'	
+					$msg = '<strong>Error !</strong> You already linked this twitter account.';
+					$this->flashMessenger->addMessage(array('message' => $msg, 'status' => 'error'));
 				}
 			}
 			else{
-				//TODO '<strong>Error !</strong> We have not been authorized to add your twiter account.'		
+				$msg = '<strong>Error !</strong> We have not been authorized to add your twitter account.';	
+				$this->flashMessenger->addMessage(array('message' => $msg, 'status' => 'error'));
 			}
 		}
 
