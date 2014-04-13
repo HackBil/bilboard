@@ -5,7 +5,7 @@
 		<div class="box-info">
 		<h2 class="text-center"><strong>Bil</strong>board</h2>
 		
-			<form role="form" action="index.html">
+			<form role="form" action="/connexion" method="POST">
 				<div class="form-group login-input">
 				<i class="fa fa-sign-in overlay"></i>
 				<input type="text" class="form-control text-input" name="mail" placeholder="Username">
@@ -27,6 +27,12 @@
 				</div>
 			</form>
 		</div>
+		<p class="text-center">
+			<a href="/connexion/pass"><i class="fa fa-lock"></i> Forgot password?</a>
+			&nbsp;&nbsp;&nbsp;
+			<a href="/connexion/inscription"><i class="fa fa-flash"></i> Register</a>
+		</p>
 	</div>
 </div>
 <!-- End Login Page -->
+<? if(isset($this->inactiv)) echo $this->inactiv; ?>

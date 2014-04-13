@@ -1,0 +1,33 @@
+<?php
+	$css = $this->minifyHeadLink()
+		->appendStylesheet('/css/modules/frontend/index.css');
+?>
+
+<div id="title_content">
+	<h1 class="titre">Exception levée</h1> 
+	<h2 class="titre">Information sur l'exception.</h2> 
+</div>
+
+<div id="page_content">
+
+	<h3> Description : </h3>
+	<ul>
+		<li> <b><?= $this->exception->getMessage() ?></b> </li>
+	</ul>
+
+	<h3> Stack trace : </h3>
+	<pre class="trace"><?= $this->exception->getTraceAsString() ?></pre>
+
+	<h3>Page demandée : </h3>
+	<ul>
+		<li> Module => <b><?= $this->request["module"] ?></b> </li>
+		<li> Controleur => <b><?= $this->request["controller"] ?></b> </li>
+		<li> Action => <b><?= $this->request["action"] ?></b> </li>
+	</ul>
+	
+	<h3>Paramètres $_POST : </h3>
+	<pre class="trace"><? Zend_Debug::dump($_POST); ?></pre>
+	
+	<h3>Paramètres $_GET : </h3>
+	<pre class="trace"><? Zend_Debug::dump($_GET); ?></pre>
+
