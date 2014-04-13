@@ -30,7 +30,7 @@ class connexion_IndexController extends Lib_AC_ConnexionController
 		}
         if(isset($this->session->user))
         {
-        	if($this->session->user['activ'])
+        	if($this->session->user['activ'] == true)
             	$this->_redirect('/');
             else
             {
