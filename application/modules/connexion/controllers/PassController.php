@@ -14,10 +14,9 @@ class connexion_PassController extends Lib_AC_ConnexionController
     	if(isset($_POST['mail']))
     	{
             $user = $this->mUser->getFromMail($_POST['mail']);
-            $data['id'] = $user['idElt'];
             $pass = Lib_Pass::newpass();
             $data['pass'] = Lib_Pass::encode($pass);
-            $this->mUser->update($data);
+            $this->mUser->update($data,$user['idElt']);
             mail($_POST['mail'],'BIL - Nouveau Mot de passe',$pass);
             $this->_redirect('/');
     	}

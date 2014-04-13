@@ -51,13 +51,13 @@ class Model_User extends Zend_Db_Table
 		return $this->_db->lastInsertId();
 	}
 
-	public function update($user)
+	public function update($user,$userId)
 	{
 		$data['lastname'] = $user['lastname'];
 		$data['firstname'] = $user['firstname'];
 		$data['mail'] = $user['mail'];
 		$data['pass'] = Lib_Pass::encode($user['pass']);
-		$where =  array ('id = ?' => $post['id']);
+		$where =  array ('id = ?' => $userId);
 		$this->_db->update('user', $data, $where);
 	}
 }
