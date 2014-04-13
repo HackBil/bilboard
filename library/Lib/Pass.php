@@ -9,7 +9,7 @@ class Lib_Pass
 	}
 
     // RD - Encode un mot de passe en utilisant l'algorithme SHA_256.
-	public static function new()
+	public static function newpass()
 	{
         $pass = "";
         $chaine = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
