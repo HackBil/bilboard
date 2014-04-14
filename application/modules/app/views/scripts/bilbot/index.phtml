@@ -14,20 +14,19 @@
 			<div id="basic-form" class="collapse in">
 				<form role="form">
 				  <div class="form-group">
-					<label for="mentions">@mentions</label>
-					<input type="text" class="form-control" id="mentions" placeholder="Nommez les utilisateurs dont vous voulez profiter des followers...">
+					<label for="users">@mentions</label>
+					<input type="text" class="form-control" id="users" name="users[]" placeholder="Nommez les utilisateurs dont vous voulez profiter des followers...">
 				  </div>
 				  <div class="form-group">
 					<label for="twitter">Compte Twitter</label>
-					<select class="form-control">
+					<select class="form-control" name="title">
 						
 					<? foreach($this->links as $link) : ?>
-						<option value="<?=$link['connectionObject']?>"><?=$link['title']?></option>
+						<option value="<?=$link['title']?>"><?=$link['title']?></option>
 					<? endforeach; ?>
 					</select>
 					<p class="help-block"><a href="/profil">Linker un nouveau compte</a></p>
 				  </div>
-				  <button class="btn btn-default" onclick="">Preview</button>
 				  <button type="submit" class="btn btn-default">Save</button>
 				</form>
 			</div><!-- End div #basic-form -->
