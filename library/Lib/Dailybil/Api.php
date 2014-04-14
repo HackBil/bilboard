@@ -4,8 +4,10 @@ class Lib_Dailybil_Api
 	public function create($post)
 	{
 		$url = 'http://dailybil.herokuapp.com/tweeter';
+		$tokens = Lib_Socialconnect::twitterDecode($post['connectionObject']);
 		$fields = array(
-						'token' => $post['token'],
+						'access_token' => $tokens['oauth_token'],
+						'access_token_secret' => $tokens['oauth_token_secret'],
 						'categories'=> implode(",",$post['categories'])
 		);
 		$fields_string = "";
@@ -40,10 +42,11 @@ class Lib_Dailybil_Api
 		return $categories;
 	}
 
-	public function searches($token)
+	public function searches($connectionObject)
 	{
 		$url = 'http://dailybil.herokuapp.com/tweeter';
-		$get = '?token='.$token;
+		$tokens = Lib_Socialconnect::twitterDecode($connectionObject);
+		$get = '?access_token='.$tokens['oauth_token'].'&access_token_secret='.$tokens['oauth_token_secret'];
 		$ch = curl_init();
 		curl_setopt($ch,CURLOPT_URL,$url.$get);
 		curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
@@ -68,5 +71,27 @@ class Lib_Dailybil_Api
 		//close connection 
 		curl_close($ch);
 		return $tweets;
+	}
+
+	public function delete($post)
+	{
+		$url = 'http://dailybil.herokuapp.com/tweeter';
+		$tokens = Lib_Socialconnect::twitterDecode($post['connectionObject']);
+		$fields = array(
+						'access_token' => $tokens['oauth_token'],
+						'access_token_secret' => $tokens['oauth_token_secret'],
+						'categories'=> $post['categories']
+		);
+		$fields_string = "";
+		foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; } 
+		rtrim($fields_string,'&');
+		$ch = curl_init();
+		curl_setopt($ch,CURLOPT_URL,$url);
+  		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
+		curl_setopt($ch,CURLOPT_POSTFIELDS,$fields_string);
+		curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+		curl_exec($ch);
+		//close connection 
+		curl_close($ch);
 	}
 }
