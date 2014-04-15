@@ -24,9 +24,9 @@ class connexion_IndexController extends Lib_AC_ConnexionController
 			$idClient = $this->mUser->login($_POST['mail'],$_POST['pass']);
 			$this->session->user = $this->mUser->get($idClient);
 		}
-		if((isset($_POST['remember']) && $_POST['remember']=="true") || (isset($this->remember) && $this->remember!=""))
+		if((isset($_POST['remember']) && $_POST['remember']=="on") || (isset($this->remember) && $this->remember!=""))
 		{
-			setcookie('remember', $idClient , (time() + 3600*24*7),"/","bilboard.fr");
+			setcookie('remember', $this->session->user['id'] , (time() + 3600*24*7),"/","bilboard.fr");
 		}
         if(isset($this->session->user))
         {
