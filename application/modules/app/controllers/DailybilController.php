@@ -41,7 +41,7 @@ class DailybilController extends Lib_AC_AppController
 	{
 		$link = $this->mLink->findByAttributes(array('title'=>$_GET['title'],'idUser'=>$this->session->user['id'],'type'=>Model_Link::TYPE_TWITTER));
 		$data['connectionObject'] = $link['connectionObject'];
-		$data['categories'] = url_decode($_GET['categories']);
+		$data['categories'] = urldecode($_GET['categories']);
 		Lib_Dailybil_Api::delete($data);
 		$this->_redirect('/dailybil');
 	}
