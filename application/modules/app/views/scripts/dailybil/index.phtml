@@ -55,7 +55,7 @@
 						<tr>
 							<td><?=$key?></td>
 							<td><?=implode(',',$search)?></td>
-							<td><a href="/dailybil/delete?token="><i class="fa fa-times"></i></a></td>
+							<td><a href="/dailybil/delete?title=<?=$key?>&categories=<?=urlencode((implode(',',$search))?>"><i class="fa fa-times"></i></a></td>
 						</tr>
 						<? endforeach; ?>
 					<? endforeach; ?>
